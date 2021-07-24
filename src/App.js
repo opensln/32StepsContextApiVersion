@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import NavComponent from "./NavComponent";
+import InfoHolder from "./InfoHolder";
+import PatternContainer from "./PatternContainer";
 
-function App() {
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      randomOnj :"yehman",
+      viewBtnState : "init"
+    };
+  }
+
+  panelViewHandler = (panelName) => {
+   
+    let tempPanelName = this.state.viewBtnState;
+    tempPanelName = panelName;
+    this.setState({viewBtnState : tempPanelName});
+    //console.log(this.state.viewBtnState, "panelState triggered from main App");
+  }
+
+  componentDidUpdate() {
+  }
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"id="appContainer" >
+      <NavComponent
+      onViewPanelSelect={this.panelViewHandler}
+      panelState={this.state.viewBtnState}/>
+      <p>{this.state.viewBtnState}</p>
+      <InfoHolder/>
+      <PatternContainer/>
     </div>
   );
+}
+
 }
 
 export default App;
