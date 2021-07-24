@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class NavComponent extends Component {
 
   panelViewHandler = (e) => {
-    //console.log(e.target);
+    console.log(e.target);
     this.panelState = e.target.firstElementChild.name;
     //console.log(this.panelState, "panelState from this module");
     this.props.onViewPanelSelect(e.target.firstElementChild.name);
@@ -11,7 +11,7 @@ class NavComponent extends Component {
   };
 
   render() {
-    //   let viewPanelCollection = document.querySelectorAll(".viewBtn"); //This acts like a listener
+    //   let viewPanelCollection = document.querySelectorAll(".viewBtn"); //This acts like a listener but is apparently bad practise
     //   viewPanelCollection.forEach(item =>{
     //       if(item.firstElementChild.name === this.props.panelState) {
     //           item.style.backgroundColor = "green";
@@ -21,33 +21,42 @@ class NavComponent extends Component {
     //   });
     console.log(this.props.panelState, "after componenet re-render after click");
 
-    let drumsGreen;
+    let drumsGreen = "activePanel";
     let riffGreen;
     let bassGreen;
+  
+    let activeTextDrums ="Active";
+    let activeTextRiff ="...";
+    let activeTextBass ="...";
 
     switch(this.props.panelState) {
         case "drums":
             drumsGreen = "activePanel";
+            activeTextDrums = "Active";
             riffGreen = " ";
             bassGreen = " ";
             break;
         case "riff":
-            drumsGreen = "";
+            drumsGreen = " ";
+            activeTextDrums = "...";
             riffGreen = "activePanel";
+            activeTextRiff = "Active";
             bassGreen = " ";
             break;
         case "bass":
-            drumsGreen = "";
+            drumsGreen = " ";
+            activeTextDrums = "...";
             riffGreen = " ";
             bassGreen = "activePanel";
+            activeTextBass = "Active";
             break;
             default:
             break;
     }
     return (
-    <nav id="navBar">
+    <nav className="navBar">
         <div className="btnHolder dsLogoHolder">
-          <button id="clearSteps" className="controlBtn dsLogo">
+          <button className="clearSteps controlBtn dsLogo">
             <p>DS</p>
             <p>LDN</p>
           </button>
@@ -87,15 +96,15 @@ class NavComponent extends Component {
         </div>
         <div onClick={this.panelViewHandler} className={drumsGreen +" controlsBtn btnHolder viewBtn"}>
           <button  className="underBtn controlsBtn" name="drums">DRUMS</button>
-          <p className="activeText"></p> 
+          <p className="activeText">{activeTextDrums}</p> 
         </div>
         <div  onClick={this.panelViewHandler} className={bassGreen +" controlsBtn btnHolder viewBtn"}>
           <button  className="underBtn controlsBtn"  name="bass">BASS</button>
-          <p className="activeText"></p>
+          <p className="activeText">{activeTextBass}</p>
         </div>
         <div onClick={this.panelViewHandler} className={riffGreen +" controlsBtn btnHolder viewBtn"}>
           <button className="underBtn controlsBtn"  name="riff">RIFF</button>
-          <p className="activeText"></p>
+          <p className="activeText">{activeTextRiff}</p>
         </div>
       </nav>
     );

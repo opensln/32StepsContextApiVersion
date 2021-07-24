@@ -5,16 +5,14 @@ class PatternContainerLeft extends Component {
 
   render() {
     return (
-    <div className="patternContainerLeft">
-          <div id="patternContainerLeft">
-            <div id="bar1Label">
-              <p class="barLabelText">Bar 1</p>
-            </div>
-            <div id="bar2Label">
-              <p class="barLabelText">Bar 2</p>
-            </div>
+      <div className="patternContainerLeft">
+        <div className="bar1Label">
+          <p className="barLabelText">Bar 1</p>
         </div>
-    </div>
+        <div className="bar2Label">
+          <p className="barLabelText">Bar 2</p>
+        </div>
+      </div>
     );
   }
 }

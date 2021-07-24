@@ -10,11 +10,13 @@ class PatternContainer extends Component {
   render() {
     return (
        <div className="patternContainerHolder">
+        {/* {this.props.onViewPanelSelect2} patternContainerHolder */}
        <PatternContainerLeft/>
-       <PatternContainerRight/>
+       <PatternContainerRight
+       viewPanelState={this.props.viewPanelState}/>
        </div>
     );
   }
-}
+ }
 
 export default PatternContainer;
