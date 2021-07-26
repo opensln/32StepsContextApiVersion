@@ -44,6 +44,9 @@ p {
   border: solid 2px white;
   align-self: center;
 }
+.dsLogoText {
+  pointer-events: none;
+}
 
 .infoHolder {
   background-color: pink;

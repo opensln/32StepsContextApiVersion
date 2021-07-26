@@ -1,64 +1,105 @@
 import React, { Component } from "react";
+import globFunc from "./gobalFunctions";
 
 class NavComponent extends Component {
-
   panelViewHandler = (e) => {
-    console.log(e.target);
+    //console.log(e.target);
     this.panelState = e.target.firstElementChild.name;
     //console.log(this.panelState, "panelState from this module");
     this.props.onViewPanelSelect(e.target.firstElementChild.name);
     //console.log(this.props.panelState, "panel state fetched from the App state and brought to this module's props always one behind"); // always one behind
   };
 
+  onLoopHandler = (e) => {
+    //console.log(e.target.value, "from NavComponent");
+    this.props.loopFunction(e.target.value);
+  };
+
+  onTempoHandler = (e) => {
+    //console.log(e.target.value, "from NavComponent");
+    this.props.tempoHandler(e.target.value);
+  };
+
+  onClearPattern = () => {
+      //console.log(e.target, "from Nav");
+      this.props.clearPatternHandler();
+  }
+
   render() {
-    //   let viewPanelCollection = document.querySelectorAll(".viewBtn"); //This acts like a listener but is apparently bad practise
-    //   viewPanelCollection.forEach(item =>{
-    //       if(item.firstElementChild.name === this.props.panelState) {
-    //           item.style.backgroundColor = "green";
-    //       } else {
-    //         item.style.backgroundColor = "slategrey";
-    //       }
-    //   });
-    console.log(this.props.panelState, "after componenet re-render after click");
+    console.log(
+      this.props.panelState,
+      "after componenet re-render after click"
+    );
 
     let drumsGreen = "activePanel";
     let riffGreen;
     let bassGreen;
-  
-    let activeTextDrums ="Active";
-    let activeTextRiff ="...";
-    let activeTextBass ="...";
 
-    switch(this.props.panelState) {
-        case "drums":
-            drumsGreen = "activePanel";
-            activeTextDrums = "Active";
-            riffGreen = " ";
-            bassGreen = " ";
-            break;
-        case "riff":
-            drumsGreen = " ";
-            activeTextDrums = "...";
-            riffGreen = "activePanel";
-            activeTextRiff = "Active";
-            bassGreen = " ";
-            break;
-        case "bass":
-            drumsGreen = " ";
-            activeTextDrums = "...";
-            riffGreen = " ";
-            bassGreen = "activePanel";
-            activeTextBass = "Active";
-            break;
-            default:
-            break;
-    }
+    let activeTextDrums = "...";
+    let activeTextRiff = "...";
+    let activeTextBass = "...";
+    // console.log(
+    //   this.props.panelState,
+    //   "just before expression",
+    //   drumsGreen,
+    //   "drumsGreen value"
+    // );
+
+    this.props.panelState === "bass"
+      ? (bassGreen = "activePanel")
+      : (bassGreen = null);
+    this.props.panelState === "bass"
+      ? (activeTextBass = "Active")
+      : (activeTextBass = "...");
+
+    this.props.panelState === "riff"
+      ? (riffGreen = "activePanel")
+      : (drumsGreen = null);
+    this.props.panelState === "riff"
+      ? (activeTextRiff = "Active")
+      : (activeTextRiff = "...");
+
+    this.props.panelState === "drums"
+      ? (drumsGreen = "activePanel")
+      : (drumsGreen = null);
+    this.props.panelState === "drums"
+      ? (activeTextDrums = "Active")
+      : (activeTextDrums = "...");
+
+    let tempoList = [60, 70, 80, 90, 100, 110, 120, 140];
+    // switch(this.props.panelState) {
+    //     case "drums":
+    //         drumsGreen = "activePanel";
+    //         activeTextDrums = "Active";
+    //         riffGreen = " ";
+    //         bassGreen = " ";
+    //         break;
+    //     case "riff":
+    //         drumsGreen = " ";
+    //         activeTextDrums = "...";
+    //         riffGreen = "activePanel";
+    //         activeTextRiff = "Active";
+    //         bassGreen = " ";
+    //         break;
+    //     case "bass":
+    //         drumsGreen = " ";
+    //         activeTextDrums = "...";
+    //         riffGreen = " ";
+    //         bassGreen = "activePanel";
+    //         activeTextBass = "Active";
+    //         break;
+    //         default:
+    //         break;
+    // }
     return (
-    <nav className="navBar">
-        <div className="btnHolder dsLogoHolder">
-          <button className="clearSteps controlBtn dsLogo">
-            <p>DS</p>
+      <nav className="navBar">
+        <div className="btnHolder dsLogoHolder" >
+          <button className="clearSteps controlBtn dsLogo" onClick={this.onClearPattern}>
+              <div className="dsLogoText">
+              <p>DS</p>
             <p>LDN</p>
+              </div>
+      
           </button>
         </div>
         <div className="btnHolder" id="playSequenceHolder">
@@ -82,28 +123,56 @@ class NavComponent extends Component {
               min="60"
               max="220"
               value="60"
-            ></select>
+              onChange={this.onTempoHandler}
+            >
+              {tempoList.map((item) => (
+                <option key={item.index}>{item}</option>
+              ))}
+            </select>
           </p>
         </div>
         <div className="btnHolder">
           <button className="controlBtn">LOOPS</button>
           <p id="loopSelectHolder">
-            <select id="loopSelect" type="number" min="1" max="9" defaultValue="2">
+            <select
+              id="loopSelect"
+              type="number"
+              min="1"
+              max="9"
+              defaultValue="2"
+              onChange={this.onLoopHandler}
+            >
               <option>1</option>
               <option>2</option>
             </select>
           </p>
         </div>
-        <div onClick={this.panelViewHandler} className={drumsGreen +" controlsBtn btnHolder viewBtn"}>
-          <button  className="underBtn controlsBtn" name="drums">DRUMS</button>
-          <p className="activeText">{activeTextDrums}</p> 
+
+        <div
+          onClick={this.panelViewHandler}
+          className={drumsGreen + " controlsBtn btnHolder viewBtn"}
+        >
+          <button className="underBtn controlsBtn" name="drums">
+            DRUMS
+          </button>
+          <p className="activeText">{activeTextDrums}</p>
         </div>
-        <div  onClick={this.panelViewHandler} className={bassGreen +" controlsBtn btnHolder viewBtn"}>
-          <button  className="underBtn controlsBtn"  name="bass">BASS</button>
+        <div
+          onClick={this.panelViewHandler}
+          className={bassGreen + " controlsBtn btnHolder viewBtn"}
+        >
+          <button className="underBtn controlsBtn" name="bass">
+            BASS
+          </button>
           <p className="activeText">{activeTextBass}</p>
         </div>
-        <div onClick={this.panelViewHandler} className={riffGreen +" controlsBtn btnHolder viewBtn"}>
-          <button className="underBtn controlsBtn"  name="riff">RIFF</button>
+        <div
+          onClick={this.panelViewHandler}
+          className={riffGreen + " controlsBtn btnHolder viewBtn"}
+        >
+          <button className="underBtn controlsBtn" name="riff">
+            RIFF
+          </button>
           <p className="activeText">{activeTextRiff}</p>
         </div>
       </nav>

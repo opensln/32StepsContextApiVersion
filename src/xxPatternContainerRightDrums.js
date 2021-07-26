@@ -65,7 +65,7 @@ class PatternContainerRightDrums extends Component {
               <p><input type="checkbox" id="b1hh4Roll" /></p>
             </div>
           </div>
-          <div className="rowHolder b2snRowHolder">
+          <div className="rowHolder b1snRowHolder">
             <div className="stepBtn snStep">
               <input type="checkbox" id="b1sn1" value="1" />
             </div>
