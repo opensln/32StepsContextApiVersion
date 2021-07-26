@@ -2,22 +2,33 @@ import React, { Component } from "react";
 
 class PatternContainerRightDrumsReact extends Component {
     onHiHatChange = (e) => {
-        //console.log("Hi hat just changed");
         this.props.handleHH(e);
     };
 
+    onSnareChange = (e) => {
+        //console.log("snare just changed");
+        this.props.handleSn(e);
+    };
+
+    onKickChange = (e) => {
+        console.log("kick just changed", e.target);
+        this.props.handleKk(e);
+    };
+
     componentDidMount() {
-        console.log(
-            this.props.hihatsData,
-            "hihatsData mounted Pattern Container Drums Right"
-        );
+        // console.log(
+        //     this.props.hihatsData,
+        //     "hihatsData mounted Pattern Container Drums Right"
+        // );
+        //console.log(this.props.snareData , "snareData mounted Pattern Container Right Drums React");
+        //console.log(this.props.kickData, "kickData from Pattern Container Right Drums React");
     }
 
     componentDidUpdate() {
-        console.log(
-            this.props.hihatsData,
-            "hihatsData updated - Pattern Container Drums Right"
-        );
+        // console.log(
+        //     this.props.hihatsData,
+        //     "hihatsData updated - Pattern Container Drums Right"
+        // );
     }
 
     render() {
@@ -268,103 +279,103 @@ class PatternContainerRightDrumsReact extends Component {
                     </div>
                     <div className="rowHolder b1snRowHolder">
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn1" value="1" />
+                        <input type="checkbox" id="b1Sn1" checked={this.props.snareData[0]} onChange={this.onSnareChange} step="0" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn2" value="2" />
+                        <input type="checkbox" id="b1Sn2" checked={this.props.snareData[1]} onChange={this.onSnareChange} step="1" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn3" value="3" />
+                        <input type="checkbox" id="b1Sn3" checked={this.props.snareData[2]} onChange={this.onSnareChange} step="2" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn4" value="4" />
+                        <input type="checkbox" id="b1Sn4" checked={this.props.snareData[3]} onChange={this.onSnareChange} step="3" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn5" value="5" />
+                        <input type="checkbox" id="b1Sn4" checked={this.props.snareData[4]} onChange={this.onSnareChange} step="4" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn6" value="6" />
+                        <input type="checkbox" id="b1Sn5" checked={this.props.snareData[5]} onChange={this.onSnareChange} step="5" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn7" value="7" />
+                        <input type="checkbox" id="b1Sn7" checked={this.props.snareData[6]} onChange={this.onSnareChange} step="6" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn8" value="8" />
+                        <input type="checkbox" id="b1Sn8" checked={this.props.snareData[7]} onChange={this.onSnareChange} step="7" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn9" value="9" />
+                        <input type="checkbox" id="b1Sn9" checked={this.props.snareData[8]} onChange={this.onSnareChange} step="8" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn10" value="10" />
+                        <input type="checkbox" id="b1Sn10" checked={this.props.snareData[9]} onChange={this.onSnareChange} step="9" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn11" value="11" />
+                        <input type="checkbox" id="b1Sn11" checked={this.props.snareData[10]} onChange={this.onSnareChange} step="10" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b1sn12" value="12" />
+                        <input type="checkbox" id="b1Sn12" checked={this.props.snareData[11]} onChange={this.onSnareChange} step="11" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn13" value="13" />
+                        <input type="checkbox" id="b1Sn13" checked={this.props.snareData[12]} onChange={this.onSnareChange} step="12" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn14" value="14" />
+                        <input type="checkbox" id="b1Sn14" checked={this.props.snareData[13]} onChange={this.onSnareChange} step="13" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn15" value="15" />
+                        <input type="checkbox" id="b1Sn15" checked={this.props.snareData[14]} onChange={this.onSnareChange} step="14" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b1sn16" value="16" />
+                        <input type="checkbox" id="b1Sn16" checked={this.props.snareData[15]} onChange={this.onSnareChange} step="15" />
                         </div>
                     </div>
 
                     <div className="rowHolder b1kkRowHolder">
-                        <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk1" value="1" />
+                    <div className="stepBtn kkStep">
+                        <input type="checkbox" id="b1kk1" checked={this.props.kickData[0]} onChange={this.onKickChange} step="0" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk2" value="2" />
+                        <input type="checkbox" id="b1kk2" checked={this.props.kickData[1]} onChange={this.onKickChange} step="1" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk3" value="3" />
+                        <input type="checkbox" id="b1kk3" checked={this.props.kickData[2]} onChange={this.onKickChange} step="2" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk4" value="4" />
+                        <input type="checkbox" id="b1kk4" checked={this.props.kickData[3]} onChange={this.onKickChange} step="3" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk5" value="5" />
+                        <input type="checkbox" id="b1kk4" checked={this.props.kickData[4]} onChange={this.onKickChange} step="4" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk6" value="6" />
+                        <input type="checkbox" id="b1kk5" checked={this.props.kickData[5]} onChange={this.onKickChange} step="5" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk7" value="7" />
+                        <input type="checkbox" id="b1kk7" checked={this.props.kickData[6]} onChange={this.onKickChange} step="6" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk8" value="8" />
+                        <input type="checkbox" id="b1kk8" checked={this.props.kickData[7]} onChange={this.onKickChange} step="7" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk9" value="9" />
+                        <input type="checkbox" id="b1kk9" checked={this.props.kickData[8]} onChange={this.onKickChange} step="8" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk10" value="10" />
+                        <input type="checkbox" id="b1kk10" checked={this.props.kickData[9]} onChange={this.onKickChange} step="9" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk11" value="11" />
+                        <input type="checkbox" id="b1kk11" checked={this.props.kickData[10]} onChange={this.onKickChange} step="10" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b1kk12" value="12" />
+                        <input type="checkbox" id="b1kk12" checked={this.props.kickData[11]} onChange={this.onKickChange} step="11" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk13" value="13" />
+                        <input type="checkbox" id="b1kk13" checked={this.props.kickData[12]} onChange={this.onKickChange} step="12" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk14" value="14" />
+                        <input type="checkbox" id="b1kk14" checked={this.props.kickData[13]} onChange={this.onKickChange} step="13" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk15" value="15" />
+                        <input type="checkbox" id="b1kk15" checked={this.props.kickData[14]} onChange={this.onKickChange} step="14" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b1kk16" value="16" />
+                        <input type="checkbox" id="b1kk16" checked={this.props.kickData[15]} onChange={this.onKickChange} step="15" />
                         </div>
                     </div>
                 </div>
@@ -611,102 +622,103 @@ class PatternContainerRightDrumsReact extends Component {
 
                     <div className="rowHolder b2snRowHolder">
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn1" value="1" />
+                        <input type="checkbox" id="b1Sn17" checked={this.props.snareData[16]} onChange={this.onSnareChange} step="16" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn2" value="2" />
+                        <input type="checkbox" id="b1Sn18" checked={this.props.snareData[17]} onChange={this.onSnareChange} step="17" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn3" value="3" />
+                        <input type="checkbox" id="b1Sn19" checked={this.props.snareData[18]} onChange={this.onSnareChange} step="18" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn4" value="4" />
+                        <input type="checkbox" id="b1S20" checked={this.props.snareData[19]} onChange={this.onSnareChange} step="19" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn5" value="5" />
+                        <input type="checkbox" id="b1Sn21" checked={this.props.snareData[20]} onChange={this.onSnareChange} step="20" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn6" value="6" />
+                        <input type="checkbox" id="b1Sn22" checked={this.props.snareData[21]} onChange={this.onSnareChange} step="21" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn7" value="7" />
+                        <input type="checkbox" id="b1Sn23" checked={this.props.snareData[22]} onChange={this.onSnareChange} step="22" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn8" value="8" />
+                        <input type="checkbox" id="b1Sn24" checked={this.props.snareData[23]} onChange={this.onSnareChange} step="23" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn9" value="9" />
+                        <input type="checkbox" id="b1Sn25" checked={this.props.snareData[24]} onChange={this.onSnareChange} step="24" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn10" value="10" />
+                        <input type="checkbox" id="b1Sn26" checked={this.props.snareData[25]} onChange={this.onSnareChange} step="25" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn11" value="11" />
+                        <input type="checkbox" id="b1Sn27" checked={this.props.snareData[26]} onChange={this.onSnareChange} step="26" />
                         </div>
                         <div className="stepBtn snStep">
-                            <input type="checkbox" id="b2sn12" value="12" />
+                        <input type="checkbox" id="b1Sn28" checked={this.props.snareData[27]} onChange={this.onSnareChange} step="27" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn13" value="13" />
+                        <input type="checkbox" id="b1Sn29" checked={this.props.snareData[28]} onChange={this.onSnareChange} step="28" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn14" value="14" />
+                        <input type="checkbox" id="b1Sn30" checked={this.props.snareData[29]} onChange={this.onSnareChange} step="29" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn15" value="15" />
+                        <input type="checkbox" id="b1Sn31" checked={this.props.snareData[30]} onChange={this.onSnareChange} step="30" />
                         </div>
                         <div className="stepBtn snStep even">
-                            <input type="checkbox" id="b2sn16" value="16" />
+                        <input type="checkbox" id="b1Sn32" checked={this.props.snareData[31]} onChange={this.onSnareChange} step="31" />
                         </div>
                     </div>
+
                     <div className="rowHolder b2kkRowHolder">
-                        <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk1" value="1" />
+                    <div className="stepBtn kkStep">
+                        <input type="checkbox" id="b2kk17" checked={this.props.kickData[16]} onChange={this.onKickChange} step="16" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk2" value="2" />
+                        <input type="checkbox" id="b2kk18" checked={this.props.kickData[17]} onChange={this.onKickChange} step="17" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk3" value="3" />
+                        <input type="checkbox" id="b2kk19" checked={this.props.kickData[18]} onChange={this.onKickChange} step="18" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk4" value="4" />
+                        <input type="checkbox" id="b2kkS20" checked={this.props.kickData[19]} onChange={this.onKickChange} step="19" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk5" value="5" />
+                        <input type="checkbox" id="b2kk21" checked={this.props.kickData[20]} onChange={this.onKickChange} step="20" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk6" value="6" />
+                        <input type="checkbox" id="b2kk22" checked={this.props.kickData[21]} onChange={this.onKickChange} step="21" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk7" value="7" />
+                        <input type="checkbox" id="b2kk23" checked={this.props.kickData[22]} onChange={this.onKickChange} step="22" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk8" value="8" />
+                        <input type="checkbox" id="b2kk24" checked={this.props.kickData[23]} onChange={this.onKickChange} step="23" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk9" value="9" />
+                        <input type="checkbox" id="b2kk25" checked={this.props.kickData[24]} onChange={this.onKickChange} step="24" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk10" value="10" />
+                        <input type="checkbox" id="b2kk26" checked={this.props.kickData[25]} onChange={this.onKickChange} step="25" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk11" value="11" />
+                        <input type="checkbox" id="b2kk27" checked={this.props.kickData[26]} onChange={this.onKickChange} step="26" />
                         </div>
                         <div className="stepBtn kkStep">
-                            <input type="checkbox" id="b2kk12" value="12" />
+                        <input type="checkbox" id="b2kk28" checked={this.props.kickData[27]} onChange={this.onKickChange} step="27" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk13" value="13" />
+                        <input type="checkbox" id="b2kk29" checked={this.props.kickData[28]} onChange={this.onKickChange} step="28" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk14" value="14" />
+                        <input type="checkbox" id="b2kk30" checked={this.props.kickData[29]} onChange={this.onKickChange} step="29" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk15" value="15" />
+                        <input type="checkbox" id="b2kk31" checked={this.props.kickData[30]} onChange={this.onKickChange} step="30" />
                         </div>
                         <div className="stepBtn kkStep even">
-                            <input type="checkbox" id="b2kk16" value="16" />
+                        <input type="checkbox" id="b2kk32" checked={this.props.kickData[31]} onChange={this.onKickChange} step="31" />
                         </div>
                     </div>
                 </div>

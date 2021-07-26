@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class BassStepDropDown extends Component {
-  onChangeHandlerMiddle = (e) => {
-    this.props.HandleChangeOuter(e);
+  onBassChange = (e) => {
+    this.props.handleBassChange(e);
   };
 
   componentDidMount() {
@@ -11,13 +11,18 @@ class BassStepDropDown extends Component {
 
   render() {
     return (
-        <>
-           <select className="bassDropDown" id="b1Bass1" value="1">
-           {this.props.bassNotes.map((item) => (
-                <option key={item.index}>{item}</option>
-              ))}
-           </select>
-          </>
+      <>
+        <select
+          className="bassDropDown"
+          data-step={this.props.stepNumber}
+          defaultValue={this.props.bassValue}
+          onChange={this.onBassChange}
+        >
+          {this.props.bassNotes.map((item, index) => (
+            <option key={index}>{item}</option>
+          ))}
+        </select>
+      </>
     );
   }
 }

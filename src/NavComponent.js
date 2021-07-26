@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import globFunc from "./gobalFunctions";
+// import globFunc from "./gobalFunctions";
 
 class NavComponent extends Component {
   panelViewHandler = (e) => {
@@ -125,8 +125,8 @@ class NavComponent extends Component {
               value="60"
               onChange={this.onTempoHandler}
             >
-              {tempoList.map((item) => (
-                <option key={item.index}>{item}</option>
+              {tempoList.map((item, index) => (
+                <option key={index}>{item}</option>
               ))}
             </select>
           </p>

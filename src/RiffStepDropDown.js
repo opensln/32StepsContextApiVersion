@@ -1,23 +1,27 @@
 import React, { Component } from "react";
 
 class RiffStepDropDown extends Component {
-  onChangeHandlerMiddle = (e) => {
-    this.props.HandleChangeOuter(e);
+  onRiffChange = (e) => {
+    this.props.handleRiffChange(e);
   };
 
   componentDidMount() {
-    //console.log(this.props.riffNotes , "riff mounted RiffStepDropDown");
   }
 
   render() {
     return (
-        <>
-           <select className="bassDropDown" id="b1Bass1" value="1">
-           {this.props.riffNotes.map((item) => (
-                <option key={item.index}>{item}</option>
-              ))}
-           </select>
-          </>
+      <>
+        <select
+          className="riffDropDown"
+          data-step={this.props.stepNumber}
+          defaultValue={this.props.riffValue}
+          onChange={this.onRiffChange}
+        >
+          {this.props.riffNotes.map((item, index) => (
+            <option key={index}>{item}</option>
+          ))}
+        </select>
+      </>
     );
   }
 }
