@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import NavComponent from "./NavComponent";
-import InfoHolder from "./InfoHolder";
-import PatternContainer from "./PatternContainer";
+import NavComponent from "./Layout/NavComponent";
+import InfoHolder from "./Layout/InfoHolder";
+import PatternContainer from "./Layout/PatternContainer";
+
+let soundFetcher = require("./DataFiles/SoundFetcher");
 let appData = require("./DataFiles/PresetData");
-let globalFunction = require("./gobalFunctions");
+let globalControls = require("./GlobalControls");
 
 class App extends Component {
   constructor(props) {
@@ -12,8 +14,9 @@ class App extends Component {
 
     this.state = {
       viewBtnState: "drums",
-      numberOfLoops: 3,
-      currentTempo: 120,
+      numberOfLoops: 2,
+      currentTempo: 70,
+      currentStepLength: 0.25,
       guiDataObj: appData,
       hihatsData: appData.hihats,
       snareData: appData.snare,
@@ -21,6 +24,7 @@ class App extends Component {
       bassData: appData.bassNoteArray,
       riffData: appData.riffNoteArray
     };
+
   }
 
   panelViewHandler = (panelName) => {
@@ -31,23 +35,40 @@ class App extends Component {
   };
 
   onLoopChange = (loopValue) => {
-    //console.log(loopValue, "from main App");
     let tempNumberOfLoops = this.state.numberOfLoops;
     tempNumberOfLoops = loopValue;
     this.setState({ numberOfLoops: tempNumberOfLoops });
   };
 
   onTempoChange = (selectedTempo) => {
-    //console.log(loopValue, "from main App");
     let tempSelectedTempo = this.state.currentTempo;
     tempSelectedTempo = selectedTempo;
     this.setState({ currentTempo: tempSelectedTempo });
+
+    let beatLength = 60 / selectedTempo;
+    let tempStepLength = beatLength / 4;
+    this.setState({ currentStepLength: tempStepLength });
   };
 
   onClearPattern = () => {
     //window.confirm("do you really want to cearl All of the patterns?");
-    globalFunction();
+    globalControls.clearSteps();
   };
+
+  //---------------------onPlayNotes----------------
+  onPlayNotes = (e) => {
+  let that = this;
+  
+  async function getSampleObj() {
+  let sampleObj = await soundFetcher.fetchedSample();
+  globalControls.playNotes(sampleObj, that.state);
+  }
+  getSampleObj();
+  }
+
+  onStopNotes = () => {
+  globalControls.stopNotes();
+  }
 
   onHHChange = (e) => {
     let arrayPos = e.target.step;
@@ -91,28 +112,37 @@ class App extends Component {
     this.setState({ riffData: tempRiffData });
   };
 
+//------------------------------Component Did Mount Fetch Samples-----------------------------
+
   componentDidMount() {
-  
+  console.log("main app loaded");
+  soundFetcher.getSamples();
+
+  let beatLength = 60 / 70;
+  let tempStepLength = beatLength / 4;
+  this.setState({ currentStepLength: tempStepLength });
   }
 
   componentDidUpdate() {
-    //console.log(this.state.numberOfLoops, "number of Loops");
-    //console.log(this.state.currentTempo, "selected Tempo after main did update");
-    //console.log(this.state.snareData, "snareData main app did update");
-    //console.log(this.state.kickData, "updated kick data");
-    //console.log(this.state.bassData, "updated bassData");
-    //console.log(this.state.riffData, "riffData updated from Main");
+  //console.log(this.state.currentStepLength, "current stepLength");
   }
 
   render() {
     return (
       <div className="App appContainer">
+        <audio className="audio-element">
+          <source src="./sounds/kick50-cvw.wav"></source>
+        </audio>
         <NavComponent
           onViewPanelSelect={this.panelViewHandler}
           panelState={this.state.viewBtnState}
+          stepLength={this.state.currentStepLength}
+          numberOfLoops={this.state.numberOfLoops}
           loopFunction={this.onLoopChange}
           tempoHandler={this.onTempoChange}
           clearPatternHandler={this.onClearPattern}
+          playNotesHandler={this.onPlayNotes}
+          stopNotesHandler={this.onStopNotes}
         />
 
         <InfoHolder />

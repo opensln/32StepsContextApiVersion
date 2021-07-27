@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 // import globFunc from "./gobalFunctions";
 
+let playBtnTimeOut;
+
 class NavComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playButtonState : true
+    }
+}
+
   panelViewHandler = (e) => {
     //console.log(e.target);
     this.panelState = e.target.firstElementChild.name;
@@ -25,11 +34,45 @@ class NavComponent extends Component {
       this.props.clearPatternHandler();
   }
 
+  onPlayNotes = (e) => {
+   this.props.playNotesHandler(e);
+   let tempButtonState = this.state.playButtonState;
+   tempButtonState = false;
+   this.setState({playButtonState : tempButtonState});
+
+   let numberOfLoops = this.props.numberOfLoops;
+   let stepLength = this.props.stepLength;
+   let that = this;
+
+   playBtnTimeOut = setTimeout(function () {
+    tempButtonState = true;
+    that.setState({playButtonState : tempButtonState});
+  }, stepLength * 32 * 1000 * numberOfLoops); 
+
+  }
+
+  onStopNotes = (e) => {
+    this.props.stopNotesHandler(e);
+    let tempButtonState = this.state.playButtonState;
+    tempButtonState = true;
+    this.setState({playButtonState : tempButtonState});
+    clearInterval(playBtnTimeOut);
+  }
+
+  componentDidMount() {
+    //console.log(this.state, "general state nav section");
+  }
+
+  componentDidUpdate() {
+    //console.log(this.state.playButtonState, "play Button State");
+    //console.log(this.props.stepLength, "steplength Updated from inside Nav");
+  }
+
   render() {
-    console.log(
-      this.props.panelState,
-      "after componenet re-render after click"
-    );
+    // console.log(
+    //   this.props.panelState,
+    //   "after componenet re-render after click"
+    // );
 
     let drumsGreen = "activePanel";
     let riffGreen;
@@ -67,30 +110,10 @@ class NavComponent extends Component {
       : (activeTextDrums = "...");
 
     let tempoList = [60, 70, 80, 90, 100, 110, 120, 140];
-    // switch(this.props.panelState) {
-    //     case "drums":
-    //         drumsGreen = "activePanel";
-    //         activeTextDrums = "Active";
-    //         riffGreen = " ";
-    //         bassGreen = " ";
-    //         break;
-    //     case "riff":
-    //         drumsGreen = " ";
-    //         activeTextDrums = "...";
-    //         riffGreen = "activePanel";
-    //         activeTextRiff = "Active";
-    //         bassGreen = " ";
-    //         break;
-    //     case "bass":
-    //         drumsGreen = " ";
-    //         activeTextDrums = "...";
-    //         riffGreen = " ";
-    //         bassGreen = "activePanel";
-    //         activeTextBass = "Active";
-    //         break;
-    //         default:
-    //         break;
-    // }
+
+    let isDisabled;
+    this.state.playButtonState === true? (isDisabled = false) : (isDisabled = true);
+
     return (
       <nav className="navBar">
         <div className="btnHolder dsLogoHolder" >
@@ -99,16 +122,16 @@ class NavComponent extends Component {
               <p>DS</p>
             <p>LDN</p>
               </div>
-      
           </button>
         </div>
         <div className="btnHolder" id="playSequenceHolder">
-          <button id="playSequence" className="controlBtn">
+         
+          <button id="playSequence" className="controlBtn" onClick={this.onPlayNotes} disabled={isDisabled}>
             PLAY
           </button>
         </div>
         <div className="btnHolder">
-          <button id="stopLoop" className="controlBtn">
+          <button id="stopLoop" className="controlBtn" onClick={this.onStopNotes}>
             STOP
           </button>
         </div>
@@ -121,8 +144,8 @@ class NavComponent extends Component {
               id="tempoSelect"
               type="number"
               min="60"
-              max="220"
-              value="60"
+              max="140"
+              defaultValue="70"
               onChange={this.onTempoHandler}
             >
               {tempoList.map((item, index) => (

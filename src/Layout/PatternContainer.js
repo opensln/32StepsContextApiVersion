@@ -28,8 +28,6 @@ class PatternContainer extends Component {
     this.props.handleRiffChange(e);
   };
 
-
-
   componentDidMount() {
     //console.log(this.props.bassNotes , "mounted Pattern Container");
     //console.log(this.props.riffNotes , "riff Notes - mounted Pattern Container");

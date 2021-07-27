@@ -11,7 +11,7 @@ class PatternContainerRightDrumsReact extends Component {
     };
 
     onKickChange = (e) => {
-        console.log("kick just changed", e.target);
+        //console.log("kick just changed", e.target);
         this.props.handleKk(e);
     };
 

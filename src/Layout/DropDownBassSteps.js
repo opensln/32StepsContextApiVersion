@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-class BassStepDropDown extends Component {
+class DropDownBassSteps extends Component {
   onBassChange = (e) => {
     this.props.handleBassChange(e);
   };
 
   componentDidMount() {
-    //console.log(this.props.bassNotes , "mounted BassStepDropDown");
+    //console.log(this.props.bassNotes , "mounted DropDownBassSteps");
   }
 
   render() {
@@ -27,4 +27,4 @@ class BassStepDropDown extends Component {
   }
 }
 
-export default BassStepDropDown;
+export default DropDownBassSteps;

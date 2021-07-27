@@ -1,0 +1,24 @@
+    // switch(this.props.panelState) {
+    //     case "drums":
+    //         drumsGreen = "activePanel";
+    //         activeTextDrums = "Active";
+    //         riffGreen = " ";
+    //         bassGreen = " ";
+    //         break;
+    //     case "riff":
+    //         drumsGreen = " ";
+    //         activeTextDrums = "...";
+    //         riffGreen = "activePanel";
+    //         activeTextRiff = "Active";
+    //         bassGreen = " ";
+    //         break;
+    //     case "bass":
+    //         drumsGreen = " ";
+    //         activeTextDrums = "...";
+    //         riffGreen = " ";
+    //         bassGreen = "activePanel";
+    //         activeTextBass = "Active";
+    //         break;
+    //         default:
+    //         break;
+    // }
