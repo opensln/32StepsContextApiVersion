@@ -78,7 +78,7 @@ function getSamples() {
 
           console.log("1. Samples loaded");
           audioCtx.close();
-          console.log("2. audioCtx.state", audioCtx.state);
+          //console.log("2. audioCtx.state", audioCtx.state);
 
             fetchedSamplesObj = {
             hh : hhBuffer,
@@ -86,7 +86,7 @@ function getSamples() {
             kk: kkBuffer
             }
 
-            console.log(fetchedSamplesObj, "3. fetchedSamplesObj from SoundFetcher");
+            //console.log(fetchedSamplesObj, "3. fetchedSamplesObj from SoundFetcher");
         }
     }
 

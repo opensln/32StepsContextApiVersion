@@ -11,7 +11,7 @@ module.exports.stopNotes = stopNotes;
 //---play notes---
 
 let playNotes = function(samplesObj, pattern) {
-  console.log(samplesObj, "4. from inside playnotes");
+  //console.log(samplesObj, "4. from inside playnotes");
 
   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
   //console.log(audioCtx2.state, "audioCtx2.state");
@@ -146,9 +146,9 @@ let playNotes = function(samplesObj, pattern) {
   //--trigger loop starts here
 
   for (let j = 0; j < numberOfLoops; j++) {
+  //---32 steps---
     for (let i = 0; i <= 31; i++) {
-      //---32 steps---
-
+      
       //---Drum Triggers--
 
       //---hihats---

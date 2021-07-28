@@ -124,7 +124,7 @@ class App extends Component {
 //------------------------------Component Did Mount Fetch Samples-----------------------------
 
   componentDidMount() {
-  console.log("main app loaded");
+  //console.log("main app loaded");
   soundFetcher.getSamples();
 
   let beatLength = 60 / 70;
@@ -135,7 +135,7 @@ class App extends Component {
   componentDidUpdate() {
   //console.log(this.state.currentStepLength, "current stepLength");
 
-  console.log(this.state, "after clearing step arrays did Update");
+  //console.log(this.state, "state aftr App did update");
   }
 
   render() {

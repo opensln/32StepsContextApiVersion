@@ -79,7 +79,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh4Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="3"
                                         data-roll="yes"
@@ -139,7 +139,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh8Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="7"
                                         data-roll="yes"
@@ -180,7 +180,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh10Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="9"
                                         data-roll="yes"
@@ -257,7 +257,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh16Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="15"
                                         data-roll="yes"
@@ -422,7 +422,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh20Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="19"
                                         data-roll="yes"
@@ -481,7 +481,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh24Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="23"
                                         data-roll="yes"
@@ -522,7 +522,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh26Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="25"
                                         data-roll="yes"
@@ -599,7 +599,7 @@ class PatternContainerRightDrumsReact extends Component {
                                     <input
                                         type="checkbox"
                                         id="b1hh32Roll"
-                                        checked="true"
+                                        checked="checked"
                                         onChange={this.onHiHatChange}
                                         step="31"
                                         data-roll="yes"
