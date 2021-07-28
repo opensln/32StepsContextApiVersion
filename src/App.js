@@ -116,7 +116,7 @@ class App extends Component {
 
   onRiffChange = (e) => {
     let arrayPos = e.target.getAttribute("data-step");
-    let tempRiffData = this.state.bassData;
+    let tempRiffData = this.state.riffData;
     tempRiffData[arrayPos] = e.target.value;
     this.setState({ riffData: tempRiffData });
   };
