@@ -1,16 +1,14 @@
-//--Decalre buffers
+//--Declare buffers
 let hhBuffer;
 let snBuffer;
 let kkBuffer;
 
 let fetchedSamplesObj;
 
-// let testingScope = "hi from SoundFetcher";
-
 function getSamples() {
      
       //---requestsamples onload
-      let audioCtx = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
+      let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
         let bufferLoader;
 
@@ -70,7 +68,6 @@ function getSamples() {
         bufferLoader.load();
 
         function finishedLoading(bufferList) {
-          // Create sample sources
       
           hhBuffer = bufferList[0];
           snBuffer = bufferList[1];
@@ -78,7 +75,6 @@ function getSamples() {
 
           console.log("1. Samples loaded");
           audioCtx.close();
-          //console.log("2. audioCtx.state", audioCtx.state);
 
             fetchedSamplesObj = {
             hh : hhBuffer,
@@ -96,4 +92,4 @@ let sampleGetter = function() {
     return fetchedSamplesObj;
 };
 
-module.exports.fetchedSample = sampleGetter; //console.log(fetchedSamplesObj, "form export request");
+module.exports.fetchedSample = sampleGetter;
