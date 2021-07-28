@@ -1,10 +1,3 @@
-let clearSteps = function () {
-  window.confirm("do you really want to clear All of the patterns?");
-};
-
-//---------------------------
-
-module.exports.clearSteps = clearSteps;
 
 let audioCtx2;
 let stopNotes = function () {

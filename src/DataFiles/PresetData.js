@@ -11,12 +11,12 @@ let appDataStore = {
 
     snare :
     [false,false,false,false,
+    true,false,false,true,
+    false,true,false,false,
     true,false,false,false,
     false,false,false,false,
-    true,false,false,false,
-    false,false,false,false,
-    true,false,false,false,
-    false,false,false,false,
+    true,false,false,true,
+    false,true,false,false,
     true,false,false,false],
     kick :
     [true,false,false,false,
@@ -25,7 +25,7 @@ let appDataStore = {
     false,false,false,false,
     true,false,false,false,
     false,false,false,false,
-    false,false,true,false,
+    false,true,true,false,
     false,false,false,false,],
     bassNoteArray :[
     "Mi_","--","--","Fa_","--","--","Mi_","--",
@@ -44,3 +44,53 @@ let appDataStore = {
     };
 
 module.exports = appDataStore;
+
+let blankSlate = function() {
+
+let tempArray;
+
+let hihatsData = [];
+let snareData = [];
+let kickData = [];
+let bassData = [];
+let riffData = [];
+
+//hihats   
+for(let i = 0; i < 32; i++) {
+    hihatsData.push(false);
+}
+
+//snare   
+for(let i = 0; i < 32; i++) {
+    snareData.push(false);
+}
+
+//kick  
+for(let i = 0; i < 32; i++) {
+    kickData.push(false);
+}
+
+//bass   
+for(let i = 0; i < 32; i++) {
+    bassData.push(false);
+}
+
+//riff   
+for(let i = 0; i < 32; i++) {
+    riffData.push(false);
+}
+
+tempArray = {
+    hihatsDataObj : hihatsData,
+    snareDataObj : snareData,
+    kickDataObj : kickData,
+    bassDataObj : bassData,
+    riffDataObj : riffData
+}
+
+return tempArray;
+
+}
+
+
+module.exports.blankSlate = blankSlate;

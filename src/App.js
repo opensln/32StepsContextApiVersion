@@ -6,7 +6,7 @@ import PatternContainer from "./Layout/PatternContainer";
 
 let soundFetcher = require("./DataFiles/SoundFetcher");
 let appData = require("./DataFiles/PresetData");
-let globalControls = require("./GlobalControls");
+let soundModule = require("./SoundModule");
 
 class App extends Component {
   constructor(props) {
@@ -51,8 +51,17 @@ class App extends Component {
   };
 
   onClearPattern = () => {
-    //window.confirm("do you really want to cearl All of the patterns?");
-    globalControls.clearSteps();
+    let answer = window.confirm(
+      "Are you sure you want to clear all of the steps?"
+    );
+    if (answer) {
+      let blankSlate = appData.blankSlate();
+      this.setState({hihatsData : blankSlate.hihatsDataObj});
+      this.setState({snareData : blankSlate.snareDataObj});
+      this.setState({kickData : blankSlate.kickDataObj});
+      this.setState({bassData : blankSlate.bassDataObj});
+      this.setState({riffData : blankSlate.riffDataObj});
+    }
   };
 
   //---------------------onPlayNotes----------------
@@ -61,13 +70,13 @@ class App extends Component {
   
   async function getSampleObj() {
   let sampleObj = await soundFetcher.fetchedSample();
-  globalControls.playNotes(sampleObj, that.state);
+  soundModule.playNotes(sampleObj, that.state);
   }
   getSampleObj();
   }
 
   onStopNotes = () => {
-  globalControls.stopNotes();
+  soundModule.stopNotes();
   }
 
   onHHChange = (e) => {
@@ -125,6 +134,8 @@ class App extends Component {
 
   componentDidUpdate() {
   //console.log(this.state.currentStepLength, "current stepLength");
+
+  console.log(this.state, "after clearing step arrays did Update");
   }
 
   render() {
