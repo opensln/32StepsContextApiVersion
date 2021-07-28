@@ -6,7 +6,6 @@ class DropDownBassSteps extends Component {
   };
 
   componentDidMount() {
-    //console.log(this.props.bassNotes , "mounted DropDownBassSteps");
   }
 
   render() {

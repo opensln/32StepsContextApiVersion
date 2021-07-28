@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class PatternContainerLeft extends Component {
-  onChangeHandlerMiddle = (e) => {};
 
   render() {
     return (

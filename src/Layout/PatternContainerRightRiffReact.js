@@ -3,15 +3,10 @@ import DropDownRiffSteps from "./DropDownRiffSteps";
 
 class PatternContainerRightRiffReact extends Component {
   onChangeRiff = (e) => {
-      //console.log("riff change from Right Riff React", e.target);
       this.props.handleRiffChange(e);
   };
 
   componentDidMount() {
-    // console.log(
-    //   this.props.riffData,
-    //   "riff Data mounted Pattern Container Right Riff React"
-    // );
   }
 
   render() {

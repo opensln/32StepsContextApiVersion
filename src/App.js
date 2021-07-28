@@ -31,7 +31,6 @@ class App extends Component {
     let tempPanelName = this.state.viewBtnState;
     tempPanelName = panelName;
     this.setState({ viewBtnState: tempPanelName });
-    //console.log(this.state.viewBtnState, "panelState triggered from main App");
   };
 
   onLoopChange = (loopValue) => {
@@ -61,6 +60,7 @@ class App extends Component {
       this.setState({kickData : blankSlate.kickDataObj});
       this.setState({bassData : blankSlate.bassDataObj});
       this.setState({riffData : blankSlate.riffDataObj});
+      this.setState({viewBtnState: "drums"});
     }
   };
 
@@ -124,7 +124,6 @@ class App extends Component {
 //------------------------------Component Did Mount Fetch Samples-----------------------------
 
   componentDidMount() {
-  //console.log("main app loaded");
   soundFetcher.getSamples();
 
   let beatLength = 60 / 70;
@@ -133,17 +132,11 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-  //console.log(this.state.currentStepLength, "current stepLength");
-
-  //console.log(this.state, "state aftr App did update");
   }
 
   render() {
     return (
       <div className="App appContainer">
-        <audio className="audio-element">
-          <source src="./sounds/kick50-cvw.wav"></source>
-        </audio>
         <NavComponent
           onViewPanelSelect={this.panelViewHandler}
           panelState={this.state.viewBtnState}
@@ -172,6 +165,7 @@ class App extends Component {
           handleKk={this.onKkChange}
           handleBassChange={this.onBassChange}
           handleRiffChange={this.onRiffChange}
+          pseudoUpdate={this.pseudoUpdate}
         />
       </div>
     );

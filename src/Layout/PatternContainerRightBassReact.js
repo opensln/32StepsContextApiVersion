@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import DropDownBassSteps from "./DropDownBassSteps";
 
 class PatternContainerRightBassReact extends Component {
+
+
   onChangeBass = (e) => {
-      //console.log("Bass Changed form Right Bass React", e.target);
       this.props.handleBassChange(e);
   };
 
   componentDidMount() {
-    // console.log(
-    //   this.props.bassData,
-    //   "bassData from mounted Pattern Container Right Bass React"
-    // );
   }
 
   render() {
+    
     return (
       <div
         className="patternContainerRightBass viewPanel BASSpanel"

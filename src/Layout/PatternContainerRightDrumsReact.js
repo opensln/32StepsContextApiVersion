@@ -6,29 +6,17 @@ class PatternContainerRightDrumsReact extends Component {
     };
 
     onSnareChange = (e) => {
-        //console.log("snare just changed");
         this.props.handleSn(e);
     };
 
     onKickChange = (e) => {
-        //console.log("kick just changed", e.target);
         this.props.handleKk(e);
     };
 
     componentDidMount() {
-        // console.log(
-        //     this.props.hihatsData,
-        //     "hihatsData mounted Pattern Container Drums Right"
-        // );
-        //console.log(this.props.snareData , "snareData mounted Pattern Container Right Drums React");
-        //console.log(this.props.kickData, "kickData from Pattern Container Right Drums React");
     }
 
     componentDidUpdate() {
-        // console.log(
-        //     this.props.hihatsData,
-        //     "hihatsData updated - Pattern Container Drums Right"
-        // );
     }
 
     render() {
