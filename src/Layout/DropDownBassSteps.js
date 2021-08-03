@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+import { partsActionsCreator } from "../Actions";
 
 class DropDownBassSteps extends Component {
   onBassChange = (e) => {
-    this.props.handleBassChange(e);
-  };
+    let value = e.target.value;
+    let index = e.target.getAttribute("data-step");
+    this.props.dispatch(partsActionsCreator(index,value, "bass"));
+    }
 
   componentDidMount() {
   }
@@ -26,4 +30,8 @@ class DropDownBassSteps extends Component {
   }
 }
 
-export default DropDownBassSteps;
+const mapStateToProps = state => ({
+  bass : state.bass
+});
+
+export default connect(mapStateToProps)(DropDownBassSteps);

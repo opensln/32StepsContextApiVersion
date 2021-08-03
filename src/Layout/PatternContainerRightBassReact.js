@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import DropDownBassSteps from "./DropDownBassSteps";
+import {connect} from "react-redux";
 
 class PatternContainerRightBassReact extends Component {
 
-
-  onChangeBass = (e) => {
-      this.props.handleBassChange(e);
-  };
-
   componentDidMount() {
+  }
+
+  componentDidUpdate() {
   }
 
   render() {
@@ -25,7 +24,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep" >
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[0]}
+                bassValue={this.props.bass[0]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="0"
               />
@@ -33,7 +32,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[1]}
+                bassValue={this.props.bass[1]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="1"
               />
@@ -41,7 +40,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[2]}
+                bassValue={this.props.bass[2]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="2"
               />
@@ -49,7 +48,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[3]}
+                bassValue={this.props.bass[3]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="3"
               />
@@ -57,7 +56,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[4]}
+                bassValue={this.props.bass[4]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="4"
               />
@@ -65,7 +64,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[5]}
+                bassValue={this.props.bass[5]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="5"
               />
@@ -73,7 +72,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[6]}
+                bassValue={this.props.bass[6]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="6"
               />
@@ -81,7 +80,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[7]}
+                bassValue={this.props.bass[7]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="7"
               />
@@ -89,7 +88,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[8]}
+                bassValue={this.props.bass[8]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="8"
               />
@@ -97,7 +96,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[9]}
+                bassValue={this.props.bass[9]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="9"
               />
@@ -105,7 +104,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[10]}
+                bassValue={this.props.bass[10]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="10"
               />
@@ -113,7 +112,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[11]}
+                bassValue={this.props.bass[11]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="11"
               />
@@ -121,7 +120,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[12]}
+                bassValue={this.props.bass[12]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="12"
               />
@@ -129,7 +128,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[13]}
+                bassValue={this.props.bass[13]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="13"
               />
@@ -137,7 +136,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[14]}
+                bassValue={this.props.bass[14]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="14"
               />
@@ -145,7 +144,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[15]}
+                bassValue={this.props.bass[15]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="15"
               />
@@ -162,7 +161,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[16]}
+                bassValue={this.props.bass[16]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="16"
               />
@@ -170,7 +169,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[17]}
+                bassValue={this.props.bass[17]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="17"
               />
@@ -178,7 +177,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[18]}
+                bassValue={this.props.bass[18]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="18"
               />
@@ -186,7 +185,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[19]}
+                bassValue={this.props.bass[19]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="19"
               />
@@ -194,7 +193,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[20]}
+                bassValue={this.props.bass[20]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="20"
               />
@@ -202,7 +201,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[21]}
+                bassValue={this.props.bass[21]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="21"
               />
@@ -210,7 +209,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[22]}
+                bassValue={this.props.bass[22]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="22"
               />
@@ -218,7 +217,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[23]}
+                bassValue={this.props.bass[23]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="23"
               />
@@ -226,7 +225,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[24]}
+                bassValue={this.props.bass[24]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="24"
               />
@@ -234,7 +233,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[25]}
+                bassValue={this.props.bass[25]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="25"
               />
@@ -242,7 +241,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[26]}
+                bassValue={this.props.bass[26]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="26"
               />
@@ -250,7 +249,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[27]}
+                bassValue={this.props.bass[27]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="27"
               />
@@ -258,7 +257,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[28]}
+                bassValue={this.props.bass[28]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="28"
               />
@@ -266,7 +265,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[29]}
+                bassValue={this.props.bass[29]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="29"
               />
@@ -274,7 +273,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[30]}
+                bassValue={this.props.bass[30]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="30"
               />
@@ -282,7 +281,7 @@ class PatternContainerRightBassReact extends Component {
             <div className="bassStep even">
               <DropDownBassSteps
                 bassNotes={this.props.bassNotes}
-                bassValue={this.props.bassData[31]}
+                bassValue={this.props.bass[31]}
                 handleBassChange={this.onChangeBass}
                 stepNumber="31"
               />
@@ -296,4 +295,8 @@ class PatternContainerRightBassReact extends Component {
   }
 }
 
-export default PatternContainerRightBassReact;
+const mapStateToProps = state => ({
+  bass : state.bass
+});
+
+export default connect(mapStateToProps)(PatternContainerRightBassReact);

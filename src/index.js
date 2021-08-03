@@ -3,12 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import allReducers from "./reducer";
+import { createStore } from "redux";
+import {Provider} from "react-redux";
+
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+
+// console.log(store.getState());
+
+// //console.log(riffActionObj(),"return from Riff Action");
+
+//store.dispatch(riffActionObj());
+
+//store.subscribe(()=> console.log(store.getState(), "from upper index page.js"));
+//console.log(store, "store");
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
+ <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

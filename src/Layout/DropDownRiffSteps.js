@@ -1,12 +1,21 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+import { partsActionsCreator } from "../Actions";
+
 
 class RiffStepDropDown extends Component {
+ 
   onRiffChange = (e) => {
-    this.props.handleRiffChange(e);
-  };
+    let value = e.target.value;
+    let index = e.target.getAttribute("data-step");
+    this.props.dispatch(partsActionsCreator(index,value, "riff"));
+    }
 
-  componentDidMount() {
-  }
+    componentDidMount() {
+    }
+  
+    componentDidUpdate() {
+    }
 
   render() {
     return (
@@ -26,4 +35,8 @@ class RiffStepDropDown extends Component {
   }
 }
 
-export default RiffStepDropDown;
+const mapStateToProps = state => ({
+  riff : state.riff
+});
+
+export default connect(mapStateToProps)(RiffStepDropDown);

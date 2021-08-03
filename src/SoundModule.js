@@ -10,8 +10,9 @@ module.exports.stopNotes = stopNotes;
 
 //---play notes---
 
-let playNotes = function(samplesObj, pattern) {
+let playNotes = function(samplesObj, pattern, stateFromRedux) {
   //console.log(samplesObj, "4. from inside playnotes");
+  //console.log(stateFromRedux, "stateFromRedux");
 
   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
   //console.log(audioCtx2.state, "audioCtx2.state");
@@ -152,25 +153,25 @@ let playNotes = function(samplesObj, pattern) {
       //---Drum Triggers--
 
       //---hihats---
-      if (pattern.hihatsData[i] === true) {
+      if (stateFromRedux.hihats[i] === true) {
         sampleSource(samplesObj.hh, 0.6);
-      } else if (pattern.hihatsData[i] === "R") {
+      } else if (stateFromRedux.hihats[i] === "R") {
         sampleRollSource(samplesObj.hh, 0.6, "R");
       }
 
       //---snare---
-      if (pattern.snareData[i] === true) {
+      if (stateFromRedux.snare[i] === true) {
         sampleSource(samplesObj.snare, 0.5);
       }
 
       //---kick---
-      if (pattern.kickData[i] === true) {
+      if (stateFromRedux.kick[i] === true) {
         sampleSource(samplesObj.kk, 0.8);
       }
 
       //--Bass Note Solfege to Frequency Converter--
 
-      switch (pattern.bassData[i]) {
+      switch (stateFromRedux.bass[i]) {
         case "Re_":
           bassNoteFreq = 36.71;
           break;
@@ -214,13 +215,13 @@ let playNotes = function(samplesObj, pattern) {
 
       //---Bass Note Triggers
 
-      if (pattern.bassData[i] !== "--") {
+      if (stateFromRedux.bass[i] !== "--") {
         sineSource(bassNoteFreq, 0.8, 0.7, "bass");
       }
 
       //--Riff Note Solfege to Frequency Converter--
 
-      switch (pattern.riffData[i]) {
+      switch (stateFromRedux.riff[i]) {
         case "Re_":
           riffNoteFreq = 146.83;
           break;
@@ -263,7 +264,7 @@ let playNotes = function(samplesObj, pattern) {
       }
 
       //---Riff Note Triggers
-      if (pattern.riffData[i] !== "--") {
+      if (stateFromRedux.riff[i] !== "--") {
         sineSource(riffNoteFreq, 0.2, 0.4);
       }
 

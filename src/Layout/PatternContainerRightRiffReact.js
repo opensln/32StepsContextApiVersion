@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import DropDownRiffSteps from "./DropDownRiffSteps";
+import {connect} from "react-redux";
+
 
 class PatternContainerRightRiffReact extends Component {
-  onChangeRiff = (e) => {
-      this.props.handleRiffChange(e);
-  };
-
+ 
   componentDidMount() {
+  }
+
+  componentDidUpdate() {
   }
 
   render() {
@@ -22,128 +24,112 @@ class PatternContainerRightRiffReact extends Component {
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[0]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[0]}
                 stepNumber="0"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[1]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[1]}
                 stepNumber="1"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[2]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[2]}
                 stepNumber="2"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[3]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[3]}
                 stepNumber="3"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[4]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[4]}
                 stepNumber="4"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[5]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[5]}
                 stepNumber="5"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[6]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[6]}
                 stepNumber="6"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[7]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[7]}
                 stepNumber="7"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[8]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[8]}
                 stepNumber="8"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[9]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[9]}
                 stepNumber="9"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[10]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[10]}
                 stepNumber="10"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[11]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[11]}
                 stepNumber="11"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[12]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[12]}
                 stepNumber="12"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[13]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[13]}
                 stepNumber="13"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[14]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[14]}
                 stepNumber="14"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[15]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[15]}
                 stepNumber="15"
               />
             </div>
@@ -159,128 +145,112 @@ class PatternContainerRightRiffReact extends Component {
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[16]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[16]}
                 stepNumber="16"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[17]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[17]}
                 stepNumber="17"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[18]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[18]}
                 stepNumber="18"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[19]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[19]}
                 stepNumber="19"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[20]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[20]}
                 stepNumber="20"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[21]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[21]}
                 stepNumber="21"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[22]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[22]}
                 stepNumber="22"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[23]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[23]}
                 stepNumber="23"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[24]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[24]}
                 stepNumber="24"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[25]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[25]}
                 stepNumber="25"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[26]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[26]}
                 stepNumber="26"
               />
             </div>
             <div className="riffStep">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[27]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[27]}
                 stepNumber="27"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[28]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[28]}
                 stepNumber="28"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[29]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[29]}
                 stepNumber="29"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[30]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[30]}
                 stepNumber="30"
               />
             </div>
             <div className="riffStep even">
               <DropDownRiffSteps
                 riffNotes={this.props.riffNotes}
-                riffValue={this.props.riffData[31]}
-                handleRiffChange={this.onChangeRiff}
+                riffValue={this.props.riff[31]}
                 stepNumber="31"
               />
             </div>
@@ -293,4 +263,8 @@ class PatternContainerRightRiffReact extends Component {
   }
 }
 
-export default PatternContainerRightRiffReact;
+const mapStateToProps = state => ({
+  riff : state.riff
+});
+
+export default connect(mapStateToProps)(PatternContainerRightRiffReact);
