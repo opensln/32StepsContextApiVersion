@@ -28,7 +28,7 @@ let appDataStore = {
     false,true,true,false,
     false,false,false,false,],
     bassNoteArray :[
-    "Mi_","--","--","Fa_","--","--","Mi_","--",
+    "Ti_","--","--","Fa_","--","--","Mi_","--",
     "--","Mi_","Mi_","--","--","Mi","--","Mi_",
     "Mi_","--","--","Fa_","--","--","Mi_","--",
     "--","Mi_","Mi_","--","Mi","Mi_","Mi","--",
@@ -47,50 +47,12 @@ module.exports = appDataStore;
 
 let blankSlate = function() {
 
-let tempArray;
+let blankData =[];
 
-let hihatsData = [];
-let snareData = [];
-let kickData = [];
-let bassData = [];
-let riffData = [];
-
-//hihats   
 for(let i = 0; i < 32; i++) {
-    hihatsData.push(false);
+    blankData.push(false);
 }
-
-//snare   
-for(let i = 0; i < 32; i++) {
-    snareData.push(false);
+return blankData;
 }
-
-//kick  
-for(let i = 0; i < 32; i++) {
-    kickData.push(false);
-}
-
-//bass   
-for(let i = 0; i < 32; i++) {
-    bassData.push(false);
-}
-
-//riff   
-for(let i = 0; i < 32; i++) {
-    riffData.push(false);
-}
-
-tempArray = {
-    hihatsDataObj : hihatsData,
-    snareDataObj : snareData,
-    kickDataObj : kickData,
-    bassDataObj : bassData,
-    riffDataObj : riffData
-}
-
-return tempArray;
-
-}
-
 
 module.exports.blankSlate = blankSlate;

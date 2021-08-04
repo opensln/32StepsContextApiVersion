@@ -46,21 +46,6 @@ class App extends Component {
     this.setState({ currentStepLength: tempStepLength });
   };
 
-  onClearPattern = () => {
-    let answer = window.confirm(
-      "Are you sure you want to clear all of the steps?"
-    );
-    if (answer) {
-      let blankSlate = appData.blankSlate();
-      this.setState({hihatsData : blankSlate.hihatsDataObj});
-      this.setState({snareData : blankSlate.snareDataObj});
-      this.setState({kickData : blankSlate.kickDataObj});
-      this.setState({bassData : blankSlate.bassDataObj});
-      this.setState({riffData : blankSlate.riffDataObj});
-      this.setState({viewBtnState: "drums"});
-    }
-  };
-
   //---------------------onPlayNotes----------------
   onPlayNotes = (e) => {
   let that = this;
@@ -87,7 +72,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    //console.log(this.props, "props from App.js");
+    //console.log(this.props, "props in general from App.js");
   }
 
   render() {

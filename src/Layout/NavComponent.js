@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+import { partsActionsCreator } from "../Actions";
 
 let playBtnTimeOut;
 
@@ -12,7 +14,6 @@ class NavComponent extends Component {
 }
 
   panelViewHandler = (e) => {
-    this.panelState = e.target.firstElementChild.name;
     this.props.onViewPanelSelect(e.target.firstElementChild.name);
   };
 
@@ -25,8 +26,20 @@ class NavComponent extends Component {
   };
 
   onClearPattern = () => {
-      this.props.clearPatternHandler();
-      
+    let answer = window.confirm(
+      "Are you sure you want to clear all of the steps?"
+    );
+    if (answer) {
+        //call action <part>Reset
+        this.props.dispatch(partsActionsCreator(null,null, "hihatsReset"));
+        this.props.dispatch(partsActionsCreator(null,null, "snareReset"));
+        this.props.dispatch(partsActionsCreator(null,null, "kickReset"));
+        this.props.dispatch(partsActionsCreator(null,null, "bassReset"));
+        this.props.dispatch(partsActionsCreator(null,null, "riffReset"));
+
+        this.props.onViewPanelSelect("drums");
+    }
+
   }
 
   onPlayNotes = (e) => {
@@ -195,4 +208,8 @@ class NavComponent extends Component {
   }
 }
 
-export default NavComponent;
+const mapStateToProps = state => ({
+ 
+});
+
+export default connect(mapStateToProps)(NavComponent);

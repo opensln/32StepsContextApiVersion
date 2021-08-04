@@ -1,11 +1,16 @@
 import {combineReducers} from "redux";
 
 let appData = require("../DataFiles/PresetData"); 
+let blankSlate = appData.blankSlate();
 
     const hihatsReducer = (state = appData.hihats, action) => {
         if(action.type === 'hihats') {
             let tempState = [...state];
             tempState[action.payload.index] = action.payload.value;
+            return tempState;
+        }   if(action.type === 'hihatsReset') {
+            let tempState = [...state];
+            tempState =  blankSlate;
             return tempState;
         } else {
         return state;
@@ -17,6 +22,10 @@ let appData = require("../DataFiles/PresetData");
             let tempState = [...state];
             tempState[action.payload.index] = action.payload.value;
             return tempState;
+        }   if(action.type === 'snareReset') {
+            let tempState = [...state];
+            tempState =  blankSlate;
+            return tempState;
         } else {
         return state;
         }
@@ -26,6 +35,10 @@ let appData = require("../DataFiles/PresetData");
         if(action.type === 'kick') {
             let tempState = [...state];
             tempState[action.payload.index] = action.payload.value;
+            return tempState;
+        }   if(action.type === 'kickReset') {
+            let tempState = [...state];
+            tempState =  blankSlate;
             return tempState;
         } else {
         return state;
@@ -37,6 +50,10 @@ let appData = require("../DataFiles/PresetData");
             let tempState = [...state];
             tempState[action.payload.index] = action.payload.value;
             return tempState;
+        }   if(action.type === 'riffReset') {
+            let tempState = [...state];
+            tempState =  blankSlate;
+            return tempState;
         } else {
         return state;
         }
@@ -46,6 +63,10 @@ let appData = require("../DataFiles/PresetData");
         if(action.type === 'bass') {
             let tempState = [...state];
             tempState[action.payload.index] = action.payload.value;
+            return tempState;
+        }   if(action.type === 'bassReset') {
+            let tempState = [...state];
+            tempState =  blankSlate;
             return tempState;
         } else {
         return state;
