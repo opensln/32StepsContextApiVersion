@@ -1,4 +1,3 @@
-
 let audioCtx2;
 let stopNotes = function () {
   audioCtx2.close();
@@ -6,13 +5,9 @@ let stopNotes = function () {
 };
 
 module.exports.stopNotes = stopNotes;
-//--
 
 //---play notes---
-
 let playNotes = function(samplesObj, pattern, stateFromRedux) {
-  //console.log(samplesObj, "4. from inside playnotes");
-  //console.log(stateFromRedux, "stateFromRedux");
 
   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
   //console.log(audioCtx2.state, "audioCtx2.state");

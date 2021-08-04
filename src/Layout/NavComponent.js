@@ -17,11 +17,11 @@ class NavComponent extends Component {
     this.props.onViewPanelSelect(e.target.firstElementChild.name);
   };
 
-  onLoopHandler = (e) => {
-    this.props.loopFunction(e.target.value);
+  onLoopChange = (e) => {
+    this.props.loopHandler(e.target.value);
   };
 
-  onTempoHandler = (e) => {
+  onTempoChange = (e) => {
     this.props.tempoHandler(e.target.value);
   };
 
@@ -30,12 +30,12 @@ class NavComponent extends Component {
       "Are you sure you want to clear all of the steps?"
     );
     if (answer) {
-        //call action <part>Reset
-        this.props.dispatch(partsActionsCreator(null,null, "hihatsReset"));
-        this.props.dispatch(partsActionsCreator(null,null, "snareReset"));
-        this.props.dispatch(partsActionsCreator(null,null, "kickReset"));
-        this.props.dispatch(partsActionsCreator(null,null, "bassReset"));
-        this.props.dispatch(partsActionsCreator(null,null, "riffReset"));
+        //call actionCreator for each <part>Reset
+        let actionArray = ["hihatsReset","snareReset","kickReset","bassReset","riffReset"];
+
+        actionArray.forEach(item => {
+          this.props.dispatch(partsActionsCreator(null,null, item));
+        });
 
         this.props.onViewPanelSelect("drums");
     }
@@ -151,7 +151,7 @@ class NavComponent extends Component {
               min="60"
               max="140"
               defaultValue="70"
-              onChange={this.onTempoHandler}
+              onChange={this.onTempoChange}
             >
               {tempoList.map((item, index) => (
                 <option key={index}>{item}</option>
@@ -168,7 +168,7 @@ class NavComponent extends Component {
               min="1"
               max="9"
               defaultValue="2"
-              onChange={this.onLoopHandler}
+              onChange={this.onLoopChange}
             >
               <option>1</option>
               <option>2</option>

@@ -12,15 +12,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
-// console.log(store.getState());
-
-// //console.log(riffActionObj(),"return from Riff Action");
-
-//store.dispatch(riffActionObj());
-
-//store.subscribe(()=> console.log(store.getState(), "from upper index page.js"));
-//console.log(store, "store");
-
 ReactDOM.render(
   <Provider store={store}>
  <React.StrictMode>

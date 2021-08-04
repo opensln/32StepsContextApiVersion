@@ -20,8 +20,6 @@ class App extends Component {
       currentStepLength: 0.25,
       guiDataObj: appData
     };
-
-    
   }
 
   panelViewHandler = (panelName) => {
@@ -83,7 +81,8 @@ class App extends Component {
           panelState={this.state.viewBtnState}
           stepLength={this.state.currentStepLength}
           numberOfLoops={this.state.numberOfLoops}
-          loopFunction={this.onLoopChange}
+
+          loopHandler={this.onLoopChange}
           tempoHandler={this.onTempoChange}
           clearPatternHandler={this.onClearPattern}
           playNotesHandler={this.onPlayNotes}
