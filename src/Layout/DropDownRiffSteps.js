@@ -11,12 +11,6 @@ class RiffStepDropDown extends Component {
     this.props.dispatch(partsActionsCreator(index,value, "riff"));
     }
 
-    componentDidMount() {
-    }
-  
-    componentDidUpdate() {
-    }
-
   render() {
     return (
       <>

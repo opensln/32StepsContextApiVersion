@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DropDownRiffSteps from "./DropDownRiffSteps";
 import {connect} from "react-redux";
 
-
 class PatternContainerRightRiffReact extends Component {
  
   componentDidMount() {

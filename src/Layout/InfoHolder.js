@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-// import {PropTypes} from "react";
 
 class InfoHolder extends Component {
 
   closeInfoWarning = (e) => {
   e.target.parentNode.style.display = "none";
   };
-
-  componentDidMount() {
-  }
-
-  componentDidUpdate() {
-  }
 
   render() {
    

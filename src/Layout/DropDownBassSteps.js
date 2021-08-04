@@ -9,9 +9,6 @@ class DropDownBassSteps extends Component {
     this.props.dispatch(partsActionsCreator(index,value, "bass"));
     }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <>
