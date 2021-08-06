@@ -1,29 +1,28 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
+
 import PatternContainerRightDrumsReact from "./PatternContainerRightDrumsReact";
 import PatternContainerRightBassReact from "./PatternContainerRightBassReact";
 import PatternContainerRightRiffReact from "./PatternContainerRightRiffReact";
 
-class PatternContainerRight extends Component {
+function PatternContainerRight(props) {
 
-  componentDidMount() {
-  }
+  const {mainState} = useContext(GlobalContext);
 
-  render() {
-    let currentPanel = this.props.viewPanelState;
+  // console.log(mainState.viewBtnState, "from Pattern Container Right");
+
+    let currentPanel = mainState.viewBtnState;
     return (
         <div className="patternContainerRight" > 
             { currentPanel === "drums"? <PatternContainerRightDrumsReact
             /> : null}
             { currentPanel === "bass"? <PatternContainerRightBassReact
-            bassNotes={this.props.bassNotes}
             /> : null}
             { currentPanel === "riff"? <PatternContainerRightRiffReact
-            riffNotes={this.props.bassNotes}
             />: null}
        </div>
     );
 
-}
 }
 
 export default PatternContainerRight;

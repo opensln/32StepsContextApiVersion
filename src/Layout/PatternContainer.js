@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React, { useContext} from "react";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 import PatternContainerLeft from "./PatternContainerLeft";
 import PatternContainerRight from "./PatternContainerRight";
 
-class PatternContainer extends Component {
+function PatternContainer(props) {
 
-  componentDidMount() {
-  }
+  const {mainState} = useContext(GlobalContext);
 
-  render() {
+  // console.log(mainState.viewBtnState, "from Pattern Right");
+
     return (
        <div className="patternContainerHolder">
        <PatternContainerLeft/>
        <PatternContainerRight
-       viewPanelState={this.props.viewPanelState}
-       bassNotes={this.props.bassNotes}
-       riffNotes={this.props.bassNotes}
+       viewPanelState={mainState.viewBtnState}
        />
        </div>
     );
-  }
+  
  }
 
 export default PatternContainer;

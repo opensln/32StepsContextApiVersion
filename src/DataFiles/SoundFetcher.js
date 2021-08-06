@@ -5,7 +5,9 @@ let kkBuffer;
 
 let fetchedSamplesObj;
 
-function getSamples() {
+let getSamples = function() {
+
+  console.log("fetched Samples called");
      
       //---requestsamples onload
       let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -86,10 +88,16 @@ function getSamples() {
         }
     }
 
-module.exports.getSamples = getSamples;
+  module.exports.getSamples = getSamples;
 
-let sampleGetter = function() {
-    return fetchedSamplesObj;
-};
+  let sampleGetter = function() {
+      return fetchedSamplesObj;
+  };
 
-module.exports.fetchedSample = sampleGetter;
+  module.exports.fetchedSample = sampleGetter;
+
+  let broadcaster = function() {
+    console.log("I am a message");
+  }
+
+  module.exports.broadcaster = broadcaster;

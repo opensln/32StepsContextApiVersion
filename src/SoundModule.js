@@ -7,14 +7,15 @@ let stopNotes = function () {
 module.exports.stopNotes = stopNotes;
 
 //---play notes---
-let playNotes = function(samplesObj, pattern, stateFromRedux) {
+let playNotes = function(samplesObj, info, pattern) {
+  console.log(samplesObj, "from soundmodule");
 
   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
   //console.log(audioCtx2.state, "audioCtx2.state");
   let time = audioCtx2.currentTime + 0.05; //this is zero each time
   let masterGain = audioCtx2.createGain();
-  let stepLength = pattern.currentStepLength;
-  let numberOfLoops = pattern.numberOfLoops;
+  let stepLength = info.currentStepLength;
+  let numberOfLoops = info.numberOfLoops;
   let bassNoteFreq;
   let riffNoteFreq;
 
@@ -148,25 +149,25 @@ let playNotes = function(samplesObj, pattern, stateFromRedux) {
       //---Drum Triggers--
 
       //---hihats---
-      if (stateFromRedux.hihats[i] === true) {
+      if (pattern.hihats[i] === true) {
         sampleSource(samplesObj.hh, 0.6);
-      } else if (stateFromRedux.hihats[i] === "R") {
+      } else if (pattern.hihats[i] === "R") {
         sampleRollSource(samplesObj.hh, 0.6, "R");
       }
 
       //---snare---
-      if (stateFromRedux.snare[i] === true) {
+      if (pattern.snare[i] === true) {
         sampleSource(samplesObj.snare, 0.5);
       }
 
       //---kick---
-      if (stateFromRedux.kick[i] === true) {
+      if (pattern.kick[i] === true) {
         sampleSource(samplesObj.kk, 0.8);
       }
 
       //--Bass Note Solfege to Frequency Converter--
 
-      switch (stateFromRedux.bass[i]) {
+      switch (pattern.bassNoteArray[i]) {
         case "Re_":
           bassNoteFreq = 36.71;
           break;
@@ -210,13 +211,13 @@ let playNotes = function(samplesObj, pattern, stateFromRedux) {
 
       //---Bass Note Triggers
 
-      if (stateFromRedux.bass[i] !== "--") {
+      if (pattern.bassNoteArray[i] !== "--") {
         sineSource(bassNoteFreq, 0.8, 0.7, "bass");
       }
 
       //--Riff Note Solfege to Frequency Converter--
 
-      switch (stateFromRedux.riff[i]) {
+      switch (pattern.riffNoteArray[i]) {
         case "Re_":
           riffNoteFreq = 146.83;
           break;
@@ -259,7 +260,7 @@ let playNotes = function(samplesObj, pattern, stateFromRedux) {
       }
 
       //---Riff Note Triggers
-      if (stateFromRedux.riff[i] !== "--") {
+      if (pattern.riffNoteArray[i] !== "--") {
         sineSource(riffNoteFreq, 0.2, 0.4);
       }
 

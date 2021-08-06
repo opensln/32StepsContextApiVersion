@@ -1,16 +1,19 @@
-import React, { Component } from "react";
+import React, {useContext } from "react";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
-class InfoHolder extends Component {
+function InfoHolder() {
 
-  closeInfoWarning = (e) => {
+  const incomming = useContext(GlobalContext);
+
+//   console.log(incomming, "incomming");
+
+  const closeInfoWarning = (e) => {
   e.target.parentNode.style.display = "none";
   };
 
-  render() {
-   
     return (
         <div className="infoHolder">
-              <span onClick={this.closeInfoWarning} className="closeInfoWarning">&times;</span>
+              <span onClick={closeInfoWarning} className="closeInfoWarning">&times;</span>
             <div className="infoWarning">
                 <p>32 Steps - Trial Version.</p>
                 <p>An example pattern is loaded when the page loads.</p>
@@ -22,7 +25,6 @@ class InfoHolder extends Component {
             </div>
         </div>
     );
-  }
 }
 
 export default InfoHolder;

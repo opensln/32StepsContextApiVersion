@@ -1,16 +1,22 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import DropDownBassSteps from "./DropDownBassSteps";
-import {connect} from "react-redux";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
-class PatternContainerRightBassReact extends Component {
+function PatternContainerRightBassReact(props) {
 
-  componentDidMount() {
+  const {mainState} = useContext(GlobalContext);
+  let bassStep = mainState.guiDataObj.bassNoteArray;
+  let bassNotesDropDown = mainState.guiDataObj.bassNotesGui;
+
+  //console.log(mainState.guiDataObj.bassNoteArray, "mainState Bass Right React");
+  // console.log(bassNotesDropDown, "bass Notes Drop Down Bass Right React");
+  // console.log(props, "props Bass Right React");
+
+  const onChangeBass = () => {
+
   }
 
-  componentDidUpdate() {
-  }
-
-  render() {
+  console.log(mainState.viewBtnState, "from Right Bass React");
     
     return (
       <div
@@ -23,129 +29,129 @@ class PatternContainerRightBassReact extends Component {
           <div className="rowHolder b1BassRowHolder">
             <div className="bassStep" >
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[0]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[0]}
+                handleBassChange={onChangeBass}
                 stepNumber="0"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[1]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[1]}
+                handleBassChange={onChangeBass}
                 stepNumber="1"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[2]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[2]}
+                handleBassChange={onChangeBass}
                 stepNumber="2"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[3]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[3]}
+                handleBassChange={onChangeBass}
                 stepNumber="3"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[4]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[4]}
+                handleBassChange={onChangeBass}
                 stepNumber="4"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[5]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[5]}
+                handleBassChange={onChangeBass}
                 stepNumber="5"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[6]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[6]}
+                handleBassChange={onChangeBass}
                 stepNumber="6"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[7]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[7]}
+                handleBassChange={onChangeBass}
                 stepNumber="7"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[8]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[8]}
+                handleBassChange={onChangeBass}
                 stepNumber="8"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[9]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[9]}
+                handleBassChange={onChangeBass}
                 stepNumber="9"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[10]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[10]}
+                handleBassChange={onChangeBass}
                 stepNumber="10"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[11]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[11]}
+                handleBassChange={onChangeBass}
                 stepNumber="11"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[12]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[12]}
+                handleBassChange={onChangeBass}
                 stepNumber="12"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[13]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[13]}
+                handleBassChange={onChangeBass}
                 stepNumber="13"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[14]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[14]}
+                handleBassChange={onChangeBass}
                 stepNumber="14"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[15]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[15]}
+                handleBassChange={onChangeBass}
                 stepNumber="15"
               />
             </div>
@@ -160,129 +166,129 @@ class PatternContainerRightBassReact extends Component {
           <div className="rowHolder b2BassRowHolder">
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[16]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[16]}
+                handleBassChange={onChangeBass}
                 stepNumber="16"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[17]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[17]}
+                handleBassChange={onChangeBass}
                 stepNumber="17"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[18]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[18]}
+                handleBassChange={onChangeBass}
                 stepNumber="18"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[19]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[19]}
+                handleBassChange={onChangeBass}
                 stepNumber="19"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[20]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[20]}
+                handleBassChange={onChangeBass}
                 stepNumber="20"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[21]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[21]}
+                handleBassChange={onChangeBass}
                 stepNumber="21"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[22]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[22]}
+                handleBassChange={onChangeBass}
                 stepNumber="22"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[23]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[23]}
+                handleBassChange={onChangeBass}
                 stepNumber="23"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[24]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[24]}
+                handleBassChange={onChangeBass}
                 stepNumber="24"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[25]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[25]}
+                handleBassChange={onChangeBass}
                 stepNumber="25"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[26]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[26]}
+                handleBassChange={onChangeBass}
                 stepNumber="26"
               />
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[27]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[27]}
+                handleBassChange={onChangeBass}
                 stepNumber="27"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[28]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[28]}
+                handleBassChange={onChangeBass}
                 stepNumber="28"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[29]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[29]}
+                handleBassChange={onChangeBass}
                 stepNumber="29"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[30]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[30]}
+                handleBassChange={onChangeBass}
                 stepNumber="30"
               />
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={this.props.bassNotes}
-                bassValue={this.props.bass[31]}
-                handleBassChange={this.onChangeBass}
+                bassNotes={bassNotesDropDown}
+                bassValue={bassStep[31]}
+                handleBassChange={onChangeBass}
                 stepNumber="31"
               />
             </div>
@@ -292,11 +298,7 @@ class PatternContainerRightBassReact extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 
-const mapStateToProps = state => ({
-  bass : state.bass
-});
-
-export default connect(mapStateToProps)(PatternContainerRightBassReact);
+export default PatternContainerRightBassReact;
