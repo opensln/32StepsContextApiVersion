@@ -1,14 +1,14 @@
 let audioCtx2;
-let stopNotes = function () {
+export const stopNotes = function () {
   audioCtx2.close();
   //clearInterval(playBtnTimeOut);
 };
 
-module.exports.stopNotes = stopNotes;
-
 //---play notes---
-let playNotes = function(samplesObj, info, pattern) {
+export const playNotes = function(samplesObj, info, pattern) {
   console.log(samplesObj, "from soundmodule");
+  // console.log(info.currentStepLength, "info.currentStepLength from soundmodule");
+
 
   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)(); //each click re-instantiates the audioCtx
   //console.log(audioCtx2.state, "audioCtx2.state");
@@ -270,5 +270,3 @@ let playNotes = function(samplesObj, info, pattern) {
   } //End Trigger Loop Here
 
 };
-
-module.exports.playNotes = playNotes;

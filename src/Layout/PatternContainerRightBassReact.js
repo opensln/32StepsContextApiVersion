@@ -6,17 +6,12 @@ function PatternContainerRightBassReact(props) {
 
   const {mainState} = useContext(GlobalContext);
   let bassStep = mainState.guiDataObj.bassNoteArray;
-  let bassNotesDropDown = mainState.guiDataObj.bassNotesGui;
-
-  //console.log(mainState.guiDataObj.bassNoteArray, "mainState Bass Right React");
-  // console.log(bassNotesDropDown, "bass Notes Drop Down Bass Right React");
-  // console.log(props, "props Bass Right React");
 
   const onChangeBass = () => {
 
   }
 
-  console.log(mainState.viewBtnState, "from Right Bass React");
+  //console.log(mainState.guiDataObj.bassNoteArray, "from Right Bass React");
     
     return (
       <div
@@ -29,7 +24,6 @@ function PatternContainerRightBassReact(props) {
           <div className="rowHolder b1BassRowHolder">
             <div className="bassStep" >
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[0]}
                 handleBassChange={onChangeBass}
                 stepNumber="0"
@@ -37,7 +31,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[1]}
                 handleBassChange={onChangeBass}
                 stepNumber="1"
@@ -45,7 +38,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[2]}
                 handleBassChange={onChangeBass}
                 stepNumber="2"
@@ -53,7 +45,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[3]}
                 handleBassChange={onChangeBass}
                 stepNumber="3"
@@ -61,7 +52,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[4]}
                 handleBassChange={onChangeBass}
                 stepNumber="4"
@@ -69,7 +59,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[5]}
                 handleBassChange={onChangeBass}
                 stepNumber="5"
@@ -77,7 +66,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[6]}
                 handleBassChange={onChangeBass}
                 stepNumber="6"
@@ -85,7 +73,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[7]}
                 handleBassChange={onChangeBass}
                 stepNumber="7"
@@ -93,7 +80,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[8]}
                 handleBassChange={onChangeBass}
                 stepNumber="8"
@@ -101,7 +87,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[9]}
                 handleBassChange={onChangeBass}
                 stepNumber="9"
@@ -109,7 +94,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[10]}
                 handleBassChange={onChangeBass}
                 stepNumber="10"
@@ -117,7 +101,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[11]}
                 handleBassChange={onChangeBass}
                 stepNumber="11"
@@ -125,7 +108,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[12]}
                 handleBassChange={onChangeBass}
                 stepNumber="12"
@@ -133,7 +115,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[13]}
                 handleBassChange={onChangeBass}
                 stepNumber="13"
@@ -141,7 +122,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[14]}
                 handleBassChange={onChangeBass}
                 stepNumber="14"
@@ -149,7 +129,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[15]}
                 handleBassChange={onChangeBass}
                 stepNumber="15"
@@ -166,7 +145,6 @@ function PatternContainerRightBassReact(props) {
           <div className="rowHolder b2BassRowHolder">
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[16]}
                 handleBassChange={onChangeBass}
                 stepNumber="16"
@@ -174,7 +152,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[17]}
                 handleBassChange={onChangeBass}
                 stepNumber="17"
@@ -182,7 +159,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[18]}
                 handleBassChange={onChangeBass}
                 stepNumber="18"
@@ -190,7 +166,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[19]}
                 handleBassChange={onChangeBass}
                 stepNumber="19"
@@ -198,7 +173,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[20]}
                 handleBassChange={onChangeBass}
                 stepNumber="20"
@@ -206,7 +180,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[21]}
                 handleBassChange={onChangeBass}
                 stepNumber="21"
@@ -214,7 +187,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[22]}
                 handleBassChange={onChangeBass}
                 stepNumber="22"
@@ -222,7 +194,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[23]}
                 handleBassChange={onChangeBass}
                 stepNumber="23"
@@ -230,7 +201,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[24]}
                 handleBassChange={onChangeBass}
                 stepNumber="24"
@@ -238,7 +208,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[25]}
                 handleBassChange={onChangeBass}
                 stepNumber="25"
@@ -246,7 +215,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[26]}
                 handleBassChange={onChangeBass}
                 stepNumber="26"
@@ -254,7 +222,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[27]}
                 handleBassChange={onChangeBass}
                 stepNumber="27"
@@ -262,7 +229,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[28]}
                 handleBassChange={onChangeBass}
                 stepNumber="28"
@@ -270,7 +236,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[29]}
                 handleBassChange={onChangeBass}
                 stepNumber="29"
@@ -278,7 +243,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[30]}
                 handleBassChange={onChangeBass}
                 stepNumber="30"
@@ -286,7 +250,6 @@ function PatternContainerRightBassReact(props) {
             </div>
             <div className="bassStep even">
               <DropDownBassSteps
-                bassNotes={bassNotesDropDown}
                 bassValue={bassStep[31]}
                 handleBassChange={onChangeBass}
                 stepNumber="31"

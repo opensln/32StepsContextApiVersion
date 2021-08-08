@@ -1,7 +1,6 @@
 import React, { useState} from "react";
-import { partsActionsCreator } from "../Actions";
 
-let playBtnTimeOut;
+// let playBtnTimeOut;
 
 function NavComponent(props) {
 

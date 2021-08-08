@@ -1,11 +1,6 @@
-import React, {useContext } from "react";
-import { GlobalContext } from '../GlobalContext/GlobalContext';
+import React from "react";
 
 function InfoHolder() {
-
-  const incomming = useContext(GlobalContext);
-
-//   console.log(incomming, "incomming");
 
   const closeInfoWarning = (e) => {
   e.target.parentNode.style.display = "none";

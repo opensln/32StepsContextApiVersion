@@ -1,36 +1,50 @@
-import React, { Component } from "react";
-import {connect} from "react-redux";
-import { partsActionsCreator } from "../Actions";
+import React, {useContext} from "react";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
+function RiffStepDropDown(props) {
 
-class RiffStepDropDown extends Component {
- 
-  onRiffChange = (e) => {
+  const {mainState, setMyState} = useContext(GlobalContext);
+  let riffNotesDropDown = mainState.guiDataObj.riffNotesGui;
+
+  //console.log(mainState.guiDataObj.riffNoteArray, "from DrumsRiffDropDown");
+
+  //console.log(mainState, "main state after onRiffChange was added");
+
+  const onRiffChange = (e) => {
     let value = e.target.value;
     let index = e.target.getAttribute("data-step");
-    this.props.dispatch(partsActionsCreator(index,value, "riff"));
+    let tempArray = {...mainState.guiDataObj.riffNoteArray};
+
+    tempArray[index] = value;
+
+    let tempState = {...mainState,
+    guiDataObj: {...mainState.guiDataObj}
+    };
+    //This log seems to be actually happenning after line 30???
+                  console.log(tempState.guiDataObj, "after spread operator of whole guiData object");
+
+                  console.log(tempState.guiDataObj.riffNoteArray, "riff Note Array only pre assignment");
+
+    tempState.guiDataObj.riffNoteArray = tempArray;
+
+                  console.log(tempState.guiDataObj.riffNoteArray, "riff Note Array only post assignment");
+
+    setMyState({...tempState});
     }
 
-  render() {
     return (
       <>
         <select
           className="riffDropDown"
-          data-step={this.props.stepNumber}
-          defaultValue={this.props.riffValue}
-          onChange={this.onRiffChange}
+          data-step={props.stepNumber}
+          defaultValue={props.riffValue}
+          onChange={onRiffChange}
         >
-          {this.props.riffNotes.map((item, index) => (
+          {riffNotesDropDown.map((item, index) => (
             <option key={index}>{item}</option>
           ))}
         </select>
       </>
     );
-  }
 }
-
-const mapStateToProps = state => ({
-  riff : state.riff
-});
-
-export default connect(mapStateToProps)(RiffStepDropDown);
+export default RiffStepDropDown;

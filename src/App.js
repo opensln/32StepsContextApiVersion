@@ -1,38 +1,42 @@
 import React from "react";
-import { useState } from "react";
 import "./App.css";
-import { GlobalContext } from './GlobalContext/GlobalContext';
 import NavComponent from "./Layout/NavComponent";
 import InfoHolder from "./Layout/InfoHolder";
 import PatternContainer from "./Layout/PatternContainer";
 
-let sampleObj;
-let soundFetcher = require("./DataFiles/SoundFetcher");
-let appData = require("./DataFiles/PresetData");
-let soundModule = require("./SoundModule");
+import { useState } from "react";
+import { GlobalContext } from './GlobalContext/GlobalContext';
+import {getSamples, sampleGetter} from "./DataFiles/SoundFetcher";
+import {appDataStore} from "./DataFiles/PresetData";
+import {playNotes, stopNotes} from "./SoundModule";
+
+getSamples();
+// Load samples here to prevent reloading after every page change
+// getSamples loads the samples into the fetchedSamples variable which is accessed
+// by the sampleGetter function
 
 function App() {
 
-    soundFetcher.getSamples();
+    //initTempo
+    let initBeatLength = 60 / 70;
+    let initStepLength = initBeatLength / 4;
 
     const [mainState, setMyState] = useState({
       viewBtnState: "drums",
       numberOfLoops: 2,
       currentTempo: 70,
-      currentStepLength: 0.25,
-      guiDataObj: appData
+      currentStepLength: initStepLength,
+      guiDataObj: appDataStore
     });
 
-    // console.log(mainState.numberOfLoops, "mainState.numberOfLoops from App");
-    // console.log(mainState.viewBtnState, "mainState from App");
-    // console.log(mainState.guiDataObj.bassNotesGui, "bassGui from App");
+    console.log(mainState, "mainstate from main App");
   
   const panelViewHandler = (panelName) => {
     setMyState({...mainState,  viewBtnState: panelName });
   };
 
   const onLoopChange = (loopValue) => {
-    console.log(loopValue, "Loop VAlue from App page");
+    console.log(loopValue, "Loop Value from App page");
     setMyState({...mainState, numberOfLoops: loopValue });
     console.log(mainState.numberOfLoops, "after loop change attempt");
   };
@@ -48,21 +52,14 @@ function App() {
 
   //---------------------onPlayNotes----------------
   const onPlayNotes = (e) => {
-  sampleObj = soundFetcher.fetchedSample();
-  //console.log(sampleObj, "fetched sample if not too slow");
-  soundModule.playNotes(sampleObj, mainState, mainState.guiDataObj);
+  let sampleObj = sampleGetter();
+  playNotes(sampleObj, mainState, mainState.guiDataObj);
   }
 
   const onStopNotes = () => {
-  soundModule.stopNotes();
+  stopNotes();
   }
 
-  // componentDidMount() {
-  // let beatLength = 60 / 70;
-  // let tempStepLength = beatLength / 4;
-  // this.setState({ currentStepLength: tempStepLength });
-  // }
-  
     return (
       <GlobalContext.Provider value={{mainState, setMyState}}>
       <div className="App appContainer">

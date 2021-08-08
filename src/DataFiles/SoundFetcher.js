@@ -5,9 +5,9 @@ let kkBuffer;
 
 let fetchedSamplesObj;
 
-let getSamples = function() {
+export const getSamples = function() {
 
-  console.log("fetched Samples called");
+  console.log("get Samples called from Soundfetcher.js");
      
       //---requestsamples onload
       let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -83,21 +83,10 @@ let getSamples = function() {
             snare : snBuffer,
             kk: kkBuffer
             }
-
             //console.log(fetchedSamplesObj, "3. fetchedSamplesObj from SoundFetcher");
         }
     }
 
-  module.exports.getSamples = getSamples;
-
-  let sampleGetter = function() {
+  export const sampleGetter = function() {
       return fetchedSamplesObj;
   };
-
-  module.exports.fetchedSample = sampleGetter;
-
-  let broadcaster = function() {
-    console.log("I am a message");
-  }
-
-  module.exports.broadcaster = broadcaster;

@@ -1,4 +1,4 @@
-let appDataStore = {
+export const appDataStore = {
     hihats :
     [true,true,true,"R",
     true,true,true,"R",
@@ -43,9 +43,7 @@ let appDataStore = {
     riffNotesGui: ["--","Re_","Mi_","Fa_","So_","La_","Ti_","Do_","Re","Mi","Fa","So","La"]
     };
 
-module.exports = appDataStore;
-
-let blankSlate = function() {
+export const blankSlate = function() {
 
 let blankData =[];
 
@@ -54,5 +52,3 @@ for(let i = 0; i < 32; i++) {
 }
 return blankData;
 }
-
-module.exports.blankSlate = blankSlate;

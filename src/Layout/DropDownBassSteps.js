@@ -1,34 +1,41 @@
-import React, { Component } from "react";
-import {connect} from "react-redux";
-import { partsActionsCreator } from "../Actions";
+import React, {useContext} from "react";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
-class DropDownBassSteps extends Component {
-  onBassChange = (e) => {
+function DropDownBassSteps(props) {
+
+  const {mainState, setMyState} = useContext(GlobalContext);
+  let bassNotesDropDown = mainState.guiDataObj.bassNotesGui;
+
+  const onBassChange = (e) => {
     let value = e.target.value;
     let index = e.target.getAttribute("data-step");
-    this.props.dispatch(partsActionsCreator(index,value, "bass"));
+    let tempArray = {...mainState.guiDataObj.bassNoteArray}; // make a brand new array by ...copying the properties.
+
+    tempArray[index] = value; // update the the new array with the value from the drop down at the stated index.
+
+    let tempState = {...mainState, // copy the main state object.
+    guiDataObj: {...mainState.guiDataObj} // create a new object in the tempstate and ..copy the properties of the guiDataObj.
+    };
+
+    tempState.guiDataObj.bassNoteArray = tempArray; //assign the tempArray to the new copy
+
+    setMyState({...tempState}); //copy all of the properties from the tempState to the mainState via setMyState.
     }
 
-  render() {
     return (
       <>
         <select
           className="bassDropDown"
-          data-step={this.props.stepNumber}
-          defaultValue={this.props.bassValue}
-          onChange={this.onBassChange}
+          data-step={props.stepNumber}
+          defaultValue={props.bassValue}
+          onChange={onBassChange}
         >
-          {this.props.bassNotes.map((item, index) => (
+          {bassNotesDropDown.map((item, index) => (
             <option key={index}>{item}</option>
           ))}
         </select>
       </>
     );
-  }
 }
 
-const mapStateToProps = state => ({
-  bass : state.bass
-});
-
-export default connect(mapStateToProps)(DropDownBassSteps);
+export default DropDownBassSteps;
