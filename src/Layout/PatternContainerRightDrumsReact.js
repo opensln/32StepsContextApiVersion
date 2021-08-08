@@ -5,11 +5,8 @@ function PatternContainerRightDrumsReact() {
 
     const {mainState, setMyState} = useContext(GlobalContext);
     let hihatsStep = mainState.guiDataObj.hihats;
-    let snareStep = mainState.guiDataObj.kick;
-    let kickStep = mainState.guiDataObj.snare;
-
-    //console.log(mainState, "mainState from drumsRightReact");
-
+    let snareStep = mainState.guiDataObj.snare;
+    let kickStep = mainState.guiDataObj.kick;
 
     const onHiHatChange = (e) => {
         let value;
@@ -22,19 +19,45 @@ function PatternContainerRightDrumsReact() {
         } else {
           value = e.target.checked;
         }
-        // this.props.dispatch(partsActionsCreator(index,value, "hihats"));
+        let tempArray = {...mainState.guiDataObj.hihats};
+        tempArray[index] = value;
+    
+        let tempState = {...mainState,
+        guiDataObj: {...mainState.guiDataObj}
+        };
+    
+        tempState.guiDataObj.hihats = tempArray;
+        setMyState({...tempState});
       };
 
     const onSnareChange = (e) => {
         let value = e.target.checked;
         let index = e.target.getAttribute("data-step");
-        // this.props.dispatch(partsActionsCreator(index,value, "snare"));
+
+        let tempArray = {...mainState.guiDataObj.snare};
+        tempArray[index] = value;
+    
+        let tempState = {...mainState,
+        guiDataObj: {...mainState.guiDataObj}
+        };
+    
+        tempState.guiDataObj.snare = tempArray;
+        setMyState({...tempState});
         }
 
     const onKickChange = (e) => {
         let value = e.target.checked;
         let index = e.target.getAttribute("data-step");
-        // this.props.dispatch(partsActionsCreator(index,value, "kick"));
+
+         let tempArray = {...mainState.guiDataObj.kick};
+        tempArray[index] = value;
+    
+        let tempState = {...mainState,
+        guiDataObj: {...mainState.guiDataObj}
+        };
+    
+        tempState.guiDataObj.kick = tempArray;
+        setMyState({...tempState});
         }
 
         return (

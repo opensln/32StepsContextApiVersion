@@ -29,7 +29,7 @@ function App() {
       guiDataObj: appDataStore
     });
 
-    console.log(mainState, "mainstate from main App");
+    //console.log(mainState, "mainstate from main App");
   
   const panelViewHandler = (panelName) => {
     setMyState({...mainState,  viewBtnState: panelName });
