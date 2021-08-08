@@ -6,7 +6,7 @@ export const stopNotes = function () {
 
 //---play notes---
 export const playNotes = function(samplesObj, info, pattern) {
-  console.log(samplesObj, "from soundmodule");
+  //console.log(samplesObj, "from soundmodule");
   // console.log(info.currentStepLength, "info.currentStepLength from soundmodule");
 
 

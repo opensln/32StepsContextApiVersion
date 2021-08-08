@@ -1,17 +1,22 @@
-import React, { useState} from "react";
+import React, { useState, useContext} from "react";
+import {blankSlate} from "../DataFiles/PresetData";
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
-// let playBtnTimeOut;
+let playBtnTimeOut;
 
 function NavComponent(props) {
+  
+  const {mainState, setMyState} = useContext(GlobalContext);
+  let viewBtnState = mainState.viewBtnState;
 
   const [playBtn, setPlayStatus] = useState({
       status : "waiting"
     });
 
   const [stopBtn, setStopStatus] = useState({
-      status : "idle"
+      status : "inactive"
     });
-
+ 
   const panelViewHandler = (e) => {
     props.onViewPanelSelect(e.target.firstElementChild.name);
   };
@@ -26,52 +31,49 @@ function NavComponent(props) {
   };
 
   const onClearPattern = () => {
-  //   let answer = window.confirm(
-  //     "Are you sure you want to clear all of the steps?"
-  //   );
-  //   if (answer) {
-  //       //call actionCreator for each <part>Reset
-  //       let actionArray = ["hihatsReset","snareReset","kickReset","bassReset","riffReset"];
-
-  //       actionArray.forEach(item => {
-  //         this.props.dispatch(partsActionsCreator(null,null, item));
-  //       });
-
-  //       this.props.onViewPanelSelect("drums");
+    let answer = window.confirm(
+      "Are you sure you want to clear all of the steps?"
+    );
+      if (answer) {
+        
+      let tempArray = blankSlate();
+      let tempState = {...mainState,
+        guiDataObj : {...mainState.guiDataObj,
+        hihats : tempArray,
+        snare: tempArray,
+        kick : tempArray,
+        bassNoteArray : tempArray,
+        riffNoteArray : tempArray}, //end nested object. 
+        viewBtnState : "drums"
+        }
+        setMyState({...tempState});
       }
-  // }
+    }
   
   const onPlayNotes = (e) => {
   props.playNotesHandler(e);
 
   setPlayStatus({...playBtn, status : "playing"});
-  setStopStatus({...stopBtn, status: "idle"});
+  setStopStatus({...stopBtn, status: "active"});
 
-  //  let numberOfLoops = this.props.numberOfLoops;
-  //  let stepLength = this.props.stepLength;
-  //  let that = this;
+   let numberOfLoops = props.numberOfLoops;
+   let stepLength = props.stepLength;
 
-  //  playBtnTimeOut = setTimeout(function () {
-  //   tempPlayButtonState = true;
-  //   that.setState({playButtonState : tempPlayButtonState});
-  // }, stepLength * 32 * 1000 * numberOfLoops); 
+   playBtnTimeOut = setTimeout(function () {
+     setPlayStatus({...playBtn, status : "waiting"});
+  }, stepLength * 32 * 1000 * numberOfLoops); 
   }
 
   const onStopNotes = (e) => {
     props.stopNotesHandler(e);
 
-    setStopStatus({...stopBtn, status: "stopRequested"});
+    setStopStatus({...stopBtn, status: "inactive"});
     setPlayStatus({...playBtn, status : "waiting"});
 
-    // let tempPlayButtonState = this.state.playButtonState;
-    // tempPlayButtonState = true;
-    // this.setState({playButtonState : tempPlayButtonState});
-    // clearInterval(playBtnTimeOut);
+    clearInterval(playBtnTimeOut);
   }
 
-    // console.log( this.props.panelState, "after componenet re-render after click");
-
-    let drumsGreen = "activePanel";
+    let drumsGreen = "activePanel"; //rember that this is the CSS class
     let riffGreen;
     let bassGreen;
 
@@ -79,24 +81,24 @@ function NavComponent(props) {
     let activeTextRiff = "...";
     let activeTextBass = "...";
 
-    props.panelState === "bass"
+    viewBtnState === "bass"
       ? (bassGreen = "activePanel")
       : (bassGreen = null);
-    props.panelState === "bass"
+    viewBtnState === "bass"
       ? (activeTextBass = "Active")
       : (activeTextBass = "...");
 
-    props.panelState === "riff"
+    viewBtnState === "riff"
       ? (riffGreen = "activePanel")
       : (drumsGreen = null);
-    props.panelState === "riff"
+    viewBtnState === "riff"
       ? (activeTextRiff = "Active")
       : (activeTextRiff = "...");
 
-    props.panelState === "drums"
+    viewBtnState === "drums"
       ? (drumsGreen = "activePanel")
       : (drumsGreen = null);
-    props.panelState === "drums"
+    viewBtnState === "drums"
       ? (activeTextDrums = "Active")
       : (activeTextDrums = "...");
 
@@ -108,7 +110,7 @@ function NavComponent(props) {
     // console.log("is playdisabled", isPlayDisabled);
    
     let isStopDisabled;
-    stopBtn.status === "idle"? (isStopDisabled = false) : (isStopDisabled = true);
+    stopBtn.status === "inactive"? (isStopDisabled = true) : (isStopDisabled = false);
     // console.log("playButtonState", stopBtn.status);
     // console.log("is stopdisabled", isStopDisabled);
 

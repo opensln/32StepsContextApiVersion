@@ -32,7 +32,8 @@ function App() {
     //console.log(mainState, "mainstate from main App");
   
   const panelViewHandler = (panelName) => {
-    setMyState({...mainState,  viewBtnState: panelName });
+    setMyState({...mainState,
+      viewBtnState: panelName });
   };
 
   const onLoopChange = (loopValue) => {
@@ -43,7 +44,7 @@ function App() {
 
   const onTempoChange = (selectedTempo) => {
     setMyState({ ...mainState, currentTempo: selectedTempo });
-    console.log("new tempo", selectedTempo);
+    //console.log("new tempo", selectedTempo);
 
     let beatLength = 60 / selectedTempo;
     let tempStepLength = beatLength / 4;
@@ -65,7 +66,7 @@ function App() {
       <div className="App appContainer">
         <NavComponent
           onViewPanelSelect={panelViewHandler}
-          panelState={mainState.viewBtnState}
+          // panelState={mainState.viewBtnState}
           stepLength={mainState.currentStepLength}
           numberOfLoops={mainState.numberOfLoops}
 

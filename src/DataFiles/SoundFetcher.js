@@ -7,7 +7,7 @@ let fetchedSamplesObj;
 
 export const getSamples = function() {
 
-  console.log("get Samples called from Soundfetcher.js");
+  //console.log("get Samples called from Soundfetcher.js");
      
       //---requestsamples onload
       let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
