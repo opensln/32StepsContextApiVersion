@@ -52,7 +52,7 @@ export const playNotes = function(samplesObj, info, pattern) {
 
   //Sample Source
   function sampleSource(currentBuffer, currentGain) {
-    let source = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be played once
+    let source = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be started once
 
     source.buffer = currentBuffer;
     let envelope = audioCtx2.createGain();
@@ -69,7 +69,7 @@ export const playNotes = function(samplesObj, info, pattern) {
 
   //Sample Roll Source
   function sampleRollSource(currentBuffer, currentGain) {
-    let source = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be played once
+    let source = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be started once
 
     source.buffer = currentBuffer;
     let envelope = audioCtx2.createGain();
@@ -82,7 +82,7 @@ export const playNotes = function(samplesObj, info, pattern) {
     source.start(time);
     source.stop(time + 0.2);
 
-    let source2 = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be played once
+    let source2 = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be started once
 
     source2.buffer = currentBuffer;
     let envelope2 = audioCtx2.createGain();
@@ -96,7 +96,7 @@ export const playNotes = function(samplesObj, info, pattern) {
     source2.stop(time + (stepLength / 3 + 0.2));
     //--------------------------
 
-    let source3 = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be played once
+    let source3 = audioCtx2.createBufferSource(); //Audio Buffer Source Node can only be started once
 
     source3.buffer = currentBuffer;
     let envelope3 = audioCtx2.createGain();

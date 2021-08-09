@@ -9,8 +9,6 @@ function PatternContainerRight(props) {
 
   const {mainState} = useContext(GlobalContext);
 
-  // console.log(mainState.viewBtnState, "from Pattern Container Right");
-
     let currentPanel = mainState.viewBtnState;
     return (
         <div className="patternContainerRight" > 

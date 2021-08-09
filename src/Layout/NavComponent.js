@@ -23,7 +23,6 @@ function NavComponent(props) {
 
   const onLoopChange = (e) => {
     props.loopHandler(e.target.value);
-    console.log(e.target.value, "number of loops");
   };
 
   const onTempoChange = (e) => {
@@ -106,13 +105,9 @@ function NavComponent(props) {
 
     let isPlayDisabled;
     playBtn.status === "waiting"? isPlayDisabled = false : isPlayDisabled = true;
-    // console.log("playButtonState", playBtn.status);
-    // console.log("is playdisabled", isPlayDisabled);
    
     let isStopDisabled;
     stopBtn.status === "inactive"? (isStopDisabled = true) : (isStopDisabled = false);
-    // console.log("playButtonState", stopBtn.status);
-    // console.log("is stopdisabled", isStopDisabled);
 
     return (
       <nav className="navBar">

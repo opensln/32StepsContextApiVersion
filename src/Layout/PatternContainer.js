@@ -7,8 +7,6 @@ function PatternContainer(props) {
 
   const {mainState} = useContext(GlobalContext);
 
-  // console.log(mainState.viewBtnState, "from Pattern Right");
-
     return (
        <div className="patternContainerHolder">
        <PatternContainerLeft/>
@@ -17,7 +15,6 @@ function PatternContainer(props) {
        />
        </div>
     );
-  
  }
 
 export default PatternContainer;

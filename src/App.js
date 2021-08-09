@@ -11,13 +11,13 @@ import {appDataStore} from "./DataFiles/PresetData";
 import {playNotes, stopNotes} from "./SoundModule";
 
 getSamples();
-// Load samples here to prevent reloading after every page change
+// Load samples here to prevent reloading after every page re-render
 // getSamples loads the samples into the fetchedSamples variable which is accessed
 // by the sampleGetter function
 
 function App() {
 
-    //initTempo
+    //init StepLength for 70bpm
     let initBeatLength = 60 / 70;
     let initStepLength = initBeatLength / 4;
 
@@ -37,9 +37,7 @@ function App() {
   };
 
   const onLoopChange = (loopValue) => {
-    console.log(loopValue, "Loop Value from App page");
     setMyState({...mainState, numberOfLoops: loopValue });
-    console.log(mainState.numberOfLoops, "after loop change attempt");
   };
 
   const onTempoChange = (selectedTempo) => {
@@ -47,8 +45,8 @@ function App() {
     //console.log("new tempo", selectedTempo);
 
     let beatLength = 60 / selectedTempo;
-    let tempStepLength = beatLength / 4;
-    setMyState({...mainState, currentStepLength: tempStepLength });
+    let newStepLength = beatLength / 4;
+    setMyState({...mainState, currentStepLength: newStepLength });
   };
 
   //---------------------onPlayNotes----------------
@@ -65,11 +63,10 @@ function App() {
       <GlobalContext.Provider value={{mainState, setMyState}}>
       <div className="App appContainer">
         <NavComponent
-          onViewPanelSelect={panelViewHandler}
-          // panelState={mainState.viewBtnState}
           stepLength={mainState.currentStepLength}
           numberOfLoops={mainState.numberOfLoops}
 
+          onViewPanelSelect={panelViewHandler}
           loopHandler={onLoopChange}
           tempoHandler={onTempoChange}
           playNotesHandler={onPlayNotes}
